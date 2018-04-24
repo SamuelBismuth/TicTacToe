@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1524586034 source:/home/samuel/Desktop/C++/Assignment 6/main.cpp
+	<iostream>
+	"Board.h"
+	"Point.h"
+
+1524587104 source:/home/samuel/Desktop/C++/Assignment 6/src/Board.cpp
+	"Board.h"
+
+1524587329 /home/samuel/Desktop/C++/Assignment 6/include/Board.h
+	<iostream>
+	<vector>
+
+1524582550 source:/home/samuel/Desktop/C++/Assignment 6/src/Point.cpp
+	"Point.h"
+
+1524582552 /home/samuel/Desktop/C++/Assignment 6/include/Point.h
+
