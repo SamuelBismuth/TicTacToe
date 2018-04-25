@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "Board.h"
+#include "IllegalCoordinateException.h"
 
 using namespace std;
 
@@ -20,5 +21,10 @@ int main() {
 	....
 	....
 	*/
+	try {
+		board1[{3,4}]='O';   // This should raise an exception
+	} catch (const IllegalCoordinateException& ex) {
+		cout << "Illegal coordinate: " << ex.theCoordinate() << endl;  // prints "Illegal coordinate: 3,4"
+    }
     return 0;
 }

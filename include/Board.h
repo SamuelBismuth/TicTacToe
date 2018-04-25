@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#include "IllegalCoordinateException.h"
+
 using namespace std;
 
 class Board {

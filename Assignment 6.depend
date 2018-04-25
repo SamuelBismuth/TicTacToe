@@ -1,18 +1,27 @@
 # depslib dependency file v1.0
-1524586034 source:/home/samuel/Desktop/C++/Assignment 6/main.cpp
+1524657517 source:/home/samuel/Desktop/C++/Assignment 6/main.cpp
 	<iostream>
 	"Board.h"
-	"Point.h"
+	"IllegalCoordinateException.h"
 
-1524587104 source:/home/samuel/Desktop/C++/Assignment 6/src/Board.cpp
+1524657447 source:/home/samuel/Desktop/C++/Assignment 6/src/Board.cpp
 	"Board.h"
 
-1524587329 /home/samuel/Desktop/C++/Assignment 6/include/Board.h
+1524657424 /home/samuel/Desktop/C++/Assignment 6/include/Board.h
 	<iostream>
 	<vector>
+	"IllegalCoordinateException.h"
 
 1524582550 source:/home/samuel/Desktop/C++/Assignment 6/src/Point.cpp
 	"Point.h"
 
 1524582552 /home/samuel/Desktop/C++/Assignment 6/include/Point.h
+
+1524657845 /home/samuel/Desktop/C++/Assignment 6/include/IllegalCoordinateException.h
+	<iostream>
+	<exception>
+	<string>
+
+1524657899 source:/home/samuel/Desktop/C++/Assignment 6/src/IllegalCoordinateException.cpp
+	"IllegalCoordinateException.h"
 

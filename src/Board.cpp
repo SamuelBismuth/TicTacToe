@@ -2,7 +2,8 @@
 
 /**
  * \brief Constructor of the object Board.
- * \param size
+ * \param dimension
+ * complexity : O(n^2) (such that n = dimension).
  */
 Board::Board(const size_t dimension) {
     matrix = new char*[dimension];
@@ -17,7 +18,8 @@ Board::Board(const size_t dimension) {
 }
 
 char& Board::operator[] (vector<int> point) {
-    matrix[point[0]][point[1]] = 'S';
+    if (point[0] < 0 || point[0] >= dimension || point[1] < 0 || point[1] >= dimension )
+        throw IllegalCoordinateException(point[0], point[1]);
     return matrix[point[0]][point[1]];
 }
 
