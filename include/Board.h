@@ -17,8 +17,10 @@ class Board {
         Board(const size_t dimension);
         FulfillTheBoard operator[] (vector<int> point);
         Board& operator= (char pawn);
-        //Board& operator= (Board& board);
+        Board& operator= (Board& board);
         void changePawn(char pawn, int x, int y);
+        char** getMatrix();
+        size_t getDimension();
 
     protected:
 
