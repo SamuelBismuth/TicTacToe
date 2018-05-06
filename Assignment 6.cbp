@@ -35,13 +35,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Board.h" />
-		<Unit filename="include/CopyBoard.h" />
 		<Unit filename="include/FulfillTheBoard.h" />
 		<Unit filename="include/IllegalCharException.h" />
 		<Unit filename="include/IllegalCoordinateException.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Board.cpp" />
-		<Unit filename="src/CopyBoard.cpp" />
 		<Unit filename="src/FulfillTheBoard.cpp" />
 		<Unit filename="src/IllegalCharException.cpp" />
 		<Unit filename="src/IllegalCoordinateException.cpp" />
