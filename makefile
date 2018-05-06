@@ -1,9 +1,9 @@
 CXX=clang++-5.0
-CXXFLAGS=-std=c++17 
+CXXFLAGS=-std=c++17
 
 all: main.o Board.o FulfillTheBoard.o IllegalCharException.o IllegalCoordinateException.o
-	$(CXX) $(CXXFLAGS) Board.o FulfillTheBoard.o IllegalCoordinateException.o 
-IllegalCharException.o  main.o
+	$(CXX) $(CXXFLAGS) Board.o FulfillTheBoard.o IllegalCoordinateException.o IllegalCharException.o  main.o
+	./a.out
 
 Board.o: Board.cpp Board.h FulfillTheBoard.h
 	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
