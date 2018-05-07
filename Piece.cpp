@@ -37,7 +37,7 @@ char Piece::operator= (char pawn) {
  * \brief overloading the operator char.
  * \return the good place in the board.
  */
-Piece::operator char() const {
+Piece::operator char() {
     return piece;
 }
 
