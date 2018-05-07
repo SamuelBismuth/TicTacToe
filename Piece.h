@@ -5,10 +5,7 @@
 
 #include <iostream>
 
-// This allow to use the class FulfillTheBoard in the class Board and
-// use the class Board in the class FulfillTheBoard too.
-
-#include "Board.h"
+#include "IllegalCharException.h"
 
 using namespace std;
 
@@ -16,13 +13,14 @@ using namespace std;
  * \brief This class fulfill the Board.
  * \author Johann and Samuel.
  */
-class FulfillTheBoard {
+class Piece {
 
     public:
 
-        //Constructor.
+        //Constructors.
 
-        FulfillTheBoard(int x, int y, Board* board);
+        Piece();
+        Piece(char pawn);
 
         //Operators
 
@@ -36,13 +34,11 @@ class FulfillTheBoard {
 
         //Variables of the object.
 
-        int x,
-            y;
-        Board* board;
+        char piece;
 
         // Operator << to print the Board.
 
-        friend ostream& operator<< (ostream& os, const FulfillTheBoard& fulfillTheBoard);
+        friend ostream& operator<< (ostream& os, const Piece& piece);
 };
 
 #endif // FULFILLTHEBOARD_H

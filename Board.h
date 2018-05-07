@@ -6,11 +6,12 @@
 #include <iostream>
 #include <vector> // For the vector use.
 
+#include "Piece.h"
 #include "IllegalCoordinateException.h"
 #include "IllegalCharException.h"
-#include "FulfillTheBoard.h"
 
-class FulfillTheBoard;
+// This allow to use the class FulfillTheBoard in the class Board and
+// use the class Board in the class FulfillTheBoard too.
 
 using namespace std;
 
@@ -34,7 +35,7 @@ class Board {
 
         //Operators
 
-        FulfillTheBoard& operator[] (vector<int> point);
+        Piece& operator[] (vector<int> point);
         Board& operator= (char pawn);
         Board& operator= (Board& board);
 
@@ -44,7 +45,7 @@ class Board {
 
         //Getters.
 
-        char** getMatrix();
+        Piece** getMatrix();
         size_t getDimension();
 
     protected:
@@ -53,8 +54,8 @@ class Board {
 
         // Variables of the object Board.
 
-        char** matrix;
         size_t dimension;
+        Piece** matrix;
 
         // Operator << to print the Board.
 

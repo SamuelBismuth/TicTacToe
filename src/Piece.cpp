@@ -1,10 +1,14 @@
 /** Include */
 
-#include "../include/FulfillTheBoard.h"
+#include "../include/Piece.h"
 
 /**
  * \brief Implementation of the method for the class FulfillTheBoard.
  */
+
+ Piece::Piece() {
+    this->piece = '.';
+ }
 
 /**
  * \brief Constructor of the object FulfillTheBoard.
@@ -12,10 +16,8 @@
  * \param y
  * \param board
  */
-FulfillTheBoard::FulfillTheBoard(int x, int y, Board* board) {
-    this->x = x;
-    this->y = y;
-    this->board = board;
+Piece::Piece(char pawn) {
+    this->piece = pawn;
 }
 
 /**
@@ -24,10 +26,10 @@ FulfillTheBoard::FulfillTheBoard(int x, int y, Board* board) {
  * \exception IllegalCharException : if the pawn change from '.', 'X' or 'O'.
  * \return the pawn.
  */
-char FulfillTheBoard::operator= (char pawn) {
+char Piece::operator= (char pawn) {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
         throw IllegalCharException(pawn);
-    board->setPawn(pawn, x, y);
+    piece = pawn;
     return pawn;
 }
 
@@ -35,13 +37,13 @@ char FulfillTheBoard::operator= (char pawn) {
  * \brief overloading the operator char.
  * \return the good place in the board.
  */
-FulfillTheBoard::operator char() {
-    return board->getMatrix()[x][y];
+Piece::operator char() {
+    return piece;
 }
 
-bool FulfillTheBoard::operator== (const char& pawn) const {
-    if (board->getMatrix()[x][y] == pawn)
-	return true;
+bool Piece::operator== (const char& pawn) const {
+    if (piece == pawn)
+        return true;
     return false;
 }
 
@@ -56,8 +58,8 @@ bool FulfillTheBoard::operator== (const char& pawn) const {
  * \return os.
  * Complexity : O(1).
  */
-ostream& operator<< (ostream& os, const FulfillTheBoard& fulfillTheBoard) {
-    os << fulfillTheBoard.board->getMatrix()[fulfillTheBoard.x][fulfillTheBoard.y] << endl;
+ostream& operator<< (ostream& os, const Piece& piece) {
+    os << piece.piece;
     return os;
 }
 

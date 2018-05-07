@@ -6,9 +6,6 @@
 #include <iostream>
 
 #include "IllegalCharException.h"
-#include "Board.h"
-
-class Board;
 
 using namespace std;
 
@@ -16,19 +13,20 @@ using namespace std;
  * \brief This class fulfill the Board.
  * \author Johann and Samuel.
  */
-class FulfillTheBoard {
+class Piece {
 
     public:
 
-        //Constructor.
+        //Constructors.
 
-        FulfillTheBoard(int x, int y, Board* board);
+        Piece();
+        Piece(char pawn);
 
         //Operators
 
-        char operator= (const char pawn);
+        char operator= (char pawn);
         operator char();
-	bool operator== (const char& pawn) const;
+        bool operator== (const char& pawn) const;
 
     protected:
 
@@ -36,13 +34,11 @@ class FulfillTheBoard {
 
         //Variables of the object.
 
-        int x,
-            y;
-        Board* board;
+        char piece;
 
         // Operator << to print the Board.
 
-        friend ostream& operator<< (ostream& os, FulfillTheBoard& fulfillTheBoard);
+        friend ostream& operator<< (ostream& os, const Piece& piece);
 };
 
 #endif // FULFILLTHEBOARD_H

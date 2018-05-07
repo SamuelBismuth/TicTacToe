@@ -1,7 +1,7 @@
 /** Includes */
 
 #include "../include/Board.h"
-#include "../include/FulfillTheBoard.h"
+#include "../include/Piece.h"
 
 /**
  * \brief Implementation of the method for the class Board.
@@ -10,19 +10,14 @@
 /**
  * \brief Constructor for the object Board.
  * \param dimension
- * This constructor build a matrix of dimension n*n and initialize all the case as char.
- * complexity : O(n^2) (such that n = dimension).
+ * This constructor build a matrix of dimension n and initialize all the case as Piece.
+ * complexity : O(n) (such that n = dimension).
  */
 Board::Board(const size_t dimension) {
     this->dimension = dimension;
-    matrix = new char*[dimension];
+    matrix = new Piece*[dimension];
     for(size_t i = 0; i < dimension; i++)
-        matrix[i] = new char[dimension];
-    for (size_t j = 0; j < dimension; j++) {
-        for (size_t k = 0; k < dimension; k++) {
-            matrix[j][k] = '.';
-        }
-    }
+        matrix[i] = new Piece[dimension];
 }
 
 /**
@@ -32,8 +27,15 @@ Board::Board(const size_t dimension) {
  * \param board
  */
 Board::Board(const Board& board) {
-    Board temp {board.dimension}; //need to free the temp.
-    *this = temp;
+    dimension = board.dimension;
+    matrix = new Piece*[dimension];
+    for(size_t i = 0; i < dimension; i++)
+        matrix[i] = new Piece[dimension];
+    for (size_t i = 0; i < dimension; i++) {
+        for (size_t j = 0; j < dimension; j++) {
+            matrix[i][j] = board.matrix[i][j];
+        }
+    }
 }
 
 /**
@@ -53,14 +55,13 @@ Board::~Board() {
  * \param point : a vector of Integers.
  * \attention In the assignment we have to add two classes but another solution was to consider that the operator "{}" was a vector.
  * \exception IllegalCoordinateException : if the coordinate are not in the matrix.
- * \return the object FulfillTheBoard.
+ * \return the object Piece.
  * complexity : O(1).
  */
-FulfillTheBoard Board::operator[] (vector<int> point) {
+Piece& Board::operator[] (vector<int> point) {
     if (point[0] < 0 || point[0] >= dimension || point[1] < 0 || point[1] >= dimension)
         throw IllegalCoordinateException(point[0], point[1]);
-    FulfillTheBoard fulfill {point[0], point[1], this};
-    return fulfill;
+    return matrix[point[0]][point[1]];
 }
 
 /**
@@ -68,7 +69,7 @@ FulfillTheBoard Board::operator[] (vector<int> point) {
  * \param pawn
  * \return the Object Board after the reset.
  * \exception IllegalCharException : if the char is not '.'.
- * complexity : O(n^2) (such that n = dimension).
+ * complexity : O(n) (such that n = dimension).
  */
 Board& Board::operator= (char pawn) {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
@@ -86,19 +87,17 @@ Board& Board::operator= (char pawn) {
  * \attention This operator do a deep copy.
  * \param board
  * \return the Object Board after copy.
- * complexity : O(n^2) (such that n = dimension).
+ * complexity : O(n) (such that n = dimension).
  */
 Board& Board::operator= (Board& board) {
     size_t tempDimension = board.getDimension();
     swap(dimension, tempDimension);
-    matrix = new char*[dimension];
+    matrix = new Piece*[dimension];
     for(size_t i = 0; i < dimension; i++)
-        matrix[i] = new char[dimension];
-    for (size_t j = 0; j < dimension; j++) {
-        for (size_t k = 0; k < dimension; k++) {
-            matrix[j][k] = board.matrix[j][k];
-        }
-    }
+        matrix[i] = new Piece[dimension];
+    for(size_t i = 0; i < dimension; i++)
+        for(size_t j = 0; j < dimension; j++)
+        matrix[i][j] = board.matrix[i][j];
     return *this;
 }
 
@@ -115,15 +114,7 @@ void Board::setPawn(char pawn, int x, int y) {
     matrix[x][y] = pawn;
 }
 
-//Getters
-
-/**
- * \brief get the matrix.
- * \return the matrix.
- */
-char** Board::getMatrix(){
-    return matrix ;
-}
+//Getter
 
 /**
  * \brief get the dimension of the matrix.
@@ -149,7 +140,6 @@ ostream& operator<< (ostream& os, const Board& board) {
         for (size_t j = 0; j < board.dimension; j++) {
             os << board.matrix[i][j];
         }
-        //If (i != board.dimension - 1) should we put this or not ?
         os << endl;
     }
     return os;
