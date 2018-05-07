@@ -6,7 +6,6 @@ HEADERS_DIR = $(CURRENT_DIR)/include
 
 all: Board.o FulfillTheBoard.o IllegalCharException.o IllegalCoordinateException.o
 	$(CXX) $(CXXFLAGS) Board.o FulfillTheBoard.o IllegalCoordinateException.o IllegalCharException.o
-	./a.out
 	
 Board.o: $(SRC_DIR)/Board.cpp  $(HEADERS_DIR)/Board.h  $(HEADERS_DIR)/FulfillTheBoard.h 
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Board.cpp -o Board.o
