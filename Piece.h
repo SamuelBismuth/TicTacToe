@@ -25,7 +25,7 @@ class Piece {
         //Operators
 
         char operator= (char pawn);
-        operator char();
+        operator char() const;
 
     protected:
 
