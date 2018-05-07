@@ -55,7 +55,7 @@ Board::~Board() {
  * \return the object FulfillTheBoard.
  * complexity : O(1).
  */
-FulfillTheBoard Board::operator[] (vector<int> point) {
+FulfillTheBoard& Board::operator[] (vector<int> point) {
     if (point[0] < 0 || point[0] >= dimension || point[1] < 0 || point[1] >= dimension)
         throw IllegalCoordinateException(point[0], point[1]);
     FulfillTheBoard fulfill {point[0], point[1], this};

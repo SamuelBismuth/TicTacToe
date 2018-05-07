@@ -34,7 +34,7 @@ class Board {
 
         //Operators
 
-        FulfillTheBoard operator[] (vector<int> point);
+        FulfillTheBoard& operator[] (vector<int> point);
         Board& operator= (char pawn);
         Board& operator= (Board& board);
 
