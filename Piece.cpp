@@ -41,12 +41,6 @@ Piece::operator char() {
     return piece;
 }
 
-bool Piece::operator== (const char& pawn) const {
-    if (piece == pawn)
-        return true;
-    return false;
-}
-
 //privates methods.
 
 //friends operators.

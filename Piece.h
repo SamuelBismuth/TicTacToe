@@ -26,7 +26,6 @@ class Piece {
 
         char operator= (char pawn);
         operator char();
-        bool operator== (const char& pawn) const;
 
     protected:
 
