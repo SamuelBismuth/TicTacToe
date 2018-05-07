@@ -1,7 +1,7 @@
 /** Includes */
 
-#include "Board.h"
-#include "FulfillTheBoard.h"
+#include "../include/Board.h"
+#include "../include/FulfillTheBoard.h"
 
 /**
  * \brief Implementation of the method for the class Board.
@@ -32,8 +32,19 @@ Board::Board(const size_t dimension) {
  * \param board
  */
 Board::Board(const Board& board) {
-    Board temp {board.dimension};
+    Board temp {board.dimension}; //need to free the temp.
     *this = temp;
+}
+
+/**
+ * \brief D_tor for the object Board.
+ * First free the char* for the array of char.
+ * Then free all the element of the array.
+ */
+Board::~Board() {
+    free(matrix);
+    for(size_t i = 0; i < dimension; i++)
+        free(matrix[dimension]);
 }
 
 /**

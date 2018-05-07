@@ -1,6 +1,6 @@
 /** Include */
 
-#include "IllegalCoordinateException.h"
+#include "../include/IllegalCoordinateException.h"
 
 /**
  * \brief Implementation of the method for the class IllegalCoordinateException.

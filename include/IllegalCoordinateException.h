@@ -16,6 +16,7 @@ using namespace std;
 class IllegalCoordinateException : public exception {
 
     public:
+
         //Constructor.
 
         IllegalCoordinateException(int x, int y);

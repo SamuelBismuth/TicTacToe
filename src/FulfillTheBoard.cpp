@@ -1,6 +1,6 @@
 /** Include */
 
-#include "FulfillTheBoard.h"
+#include "../include/FulfillTheBoard.h"
 
 /**
  * \brief Implementation of the method for the class FulfillTheBoard.
@@ -24,11 +24,35 @@ FulfillTheBoard::FulfillTheBoard(int x, int y, Board* board) {
  * \exception IllegalCharException : if the pawn change from '.', 'X' or 'O'.
  * \return the pawn.
  */
-char& FulfillTheBoard::operator= (char pawn) {
+char FulfillTheBoard::operator= (char pawn) {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
         throw IllegalCharException(pawn);
     board->setPawn(pawn, x, y);
     return pawn;
+}
+
+/**
+ * \brief overloading the operator char.
+ * \return the good place in the board.
+ */
+FulfillTheBoard::operator char() {
+    return board->getMatrix()[x][y];
+}
+
+//privates methods.
+
+//friends operators.
+
+/**
+ * \brief This friend operator prints the board. (As toString in Java).
+ * \param os
+ * \param board
+ * \return os.
+ * Complexity : O(1).
+ */
+ostream& operator<< (ostream& os, const FulfillTheBoard& fulfillTheBoard) {
+    os << fulfillTheBoard.board->getMatrix()[fulfillTheBoard.x][fulfillTheBoard.y] << endl;
+    return os;
 }
 
 

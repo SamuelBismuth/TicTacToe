@@ -24,9 +24,10 @@ class FulfillTheBoard {
 
         FulfillTheBoard(int x, int y, Board* board);
 
-        //Operator
+        //Operators
 
-        char& operator= (char pawn);
+        char operator= (char pawn);
+        operator char();
 
     protected:
 
@@ -37,6 +38,10 @@ class FulfillTheBoard {
         int x,
             y;
         Board* board;
+
+        // Operator << to print the Board.
+
+        friend ostream& operator<< (ostream& os, const FulfillTheBoard& fulfillTheBoard);
 };
 
 #endif // FULFILLTHEBOARD_H

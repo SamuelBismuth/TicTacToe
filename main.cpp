@@ -1,5 +1,7 @@
-#include "Board.h"
-#include "FulfillTheBoard.h"
+/** Includes */
+
+#include "include/Board.h"
+#include "include/FulfillTheBoard.h"
 
 #include <iostream>
 using namespace std;
@@ -12,8 +14,10 @@ int main() {
 	....
 	....
 	*/
+	cout << board1[{1,2}] << endl; // .
 	board1[{1,1}]='X';
 	board1[{1,2}]='O';
+	char c = board1[{1,2}]; cout << c << endl; // O
 	cout << board1 << endl;  /* Shows the following board:
 	....
 	.XO.

@@ -30,6 +30,10 @@ class Board {
         Board(const Board& board);        //Copy constructor.
         Board(const size_t dimension);    //Constructor.
 
+        //D_tor
+
+        ~Board();
+
         //Operators
 
         FulfillTheBoard operator[] (vector<int> point);
