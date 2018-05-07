@@ -9,6 +9,7 @@ The documentation (doxygen) in the doxygen folder.
 The LICENCE  (GNU public)
 Our main.
 The makefile.
+a txt file with our id's.
 
 # How to run :
 Type the command line "make all" in your terminal.
