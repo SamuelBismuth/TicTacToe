@@ -1,6 +1,6 @@
 /** Include */
 
-#include "../include/FulfillTheBoard.h"
+#include "FulfillTheBoard.h"
 
 /**
  * \brief Implementation of the method for the class FulfillTheBoard.
