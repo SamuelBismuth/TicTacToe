@@ -120,7 +120,7 @@ void Board::setPawn(char pawn, int x, int y) {
  * \brief get the matrix.
  * \return the matrix.
  */
-char** Board::getMatrix() const{
+char** Board::getMatrix() {
     return matrix ;
 }
 
@@ -128,7 +128,7 @@ char** Board::getMatrix() const{
  * \brief get the dimension of the matrix.
  * \return the dimension.
  */
-size_t Board::getDimension() const {
+size_t Board::getDimension() {
     return dimension; 
 }
 

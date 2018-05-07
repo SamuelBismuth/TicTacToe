@@ -44,8 +44,8 @@ class Board {
 
         //Getters.
 
-        char** getMatrix() const;
-        size_t getDimension() const;
+        char** getMatrix();
+        size_t getDimension();
 
     protected:
 
