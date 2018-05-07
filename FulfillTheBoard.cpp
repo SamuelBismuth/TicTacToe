@@ -35,7 +35,7 @@ char FulfillTheBoard::operator= (const char pawn) {
  * \brief overloading the operator char.
  * \return the good place in the board.
  */
-FulfillTheBoard::operator char() const {
+FulfillTheBoard::operator char() {
     return board->getMatrix()[x][y];
 }
 
