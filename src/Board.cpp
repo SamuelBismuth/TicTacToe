@@ -1,7 +1,6 @@
 /** Includes */
 
 #include "../include/Board.h"
-#include "../include/Piece.h"
 
 /**
  * \brief Implementation of the method for the class Board.
@@ -89,29 +88,17 @@ Board& Board::operator= (char pawn) {
  * \return the Object Board after copy.
  * complexity : O(n) (such that n = dimension).
  */
-Board& Board::operator= (Board& board) {
+Board& Board::operator= (const Board& board) {
     size_t tempDimension = board.getDimension();
-    swap(dimension, tempDimension);
     matrix = new Piece*[dimension];
     for(size_t i = 0; i < dimension; i++)
         matrix[i] = new Piece[dimension];
-    for(size_t i = 0; i < dimension; i++)
-        for(size_t j = 0; j < dimension; j++)
+    for(size_t i = 0; i < dimension; i++) {
+        for(size_t j = 0; j < dimension; j++) {
         matrix[i][j] = board.matrix[i][j];
+        }
+    }
     return *this;
-}
-
-//Setter.
-
-/**
- * \brief this method change pawn in the board. note that this methode used by the class FullfillTheBoard
- * \param pawn
- * \param x
- * \param y
- * complexity : O(1)
- */
-void Board::setPawn(char pawn, int x, int y) {
-    matrix[x][y] = pawn;
 }
 
 //Getter
@@ -120,7 +107,7 @@ void Board::setPawn(char pawn, int x, int y) {
  * \brief get the dimension of the matrix.
  * \return the dimension.
  */
-size_t Board::getDimension(){
+size_t Board::getDimension() const {
     return dimension;
 }
 

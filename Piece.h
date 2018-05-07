@@ -24,8 +24,8 @@ class Piece {
 
         //Operators
 
-        char operator= (char pawn);
-        operator char();
+        void operator= (char pawn);
+        operator char() const;
 
     protected:
 

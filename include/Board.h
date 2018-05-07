@@ -37,16 +37,11 @@ class Board {
 
         Piece& operator[] (vector<int> point);
         Board& operator= (char pawn);
-        Board& operator= (Board& board);
-
-        //Setter
-
-        void setPawn(char pawn, int x, int y);
+        Board& operator= (const Board& board);
 
         //Getters.
 
-        Piece** getMatrix();
-        size_t getDimension();
+        size_t getDimension() const;
 
     protected:
 

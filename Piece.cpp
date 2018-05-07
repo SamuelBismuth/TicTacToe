@@ -17,7 +17,7 @@
  * \param board
  */
 Piece::Piece(char pawn) {
-    this->piece = pawn;
+    piece = pawn;
 }
 
 /**
@@ -26,18 +26,17 @@ Piece::Piece(char pawn) {
  * \exception IllegalCharException : if the pawn change from '.', 'X' or 'O'.
  * \return the pawn.
  */
-char Piece::operator= (char pawn) {
+void Piece::operator= (char pawn) {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
         throw IllegalCharException(pawn);
     piece = pawn;
-    return pawn;
 }
 
 /**
  * \brief overloading the operator char.
  * \return the good place in the board.
  */
-Piece::operator char() {
+Piece::operator char() const {
     return piece;
 }
 

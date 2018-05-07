@@ -70,9 +70,8 @@
 	<iostream>
 	"Board.h"
 
-1525706157 source:/home/sam/Desktop/C++/Assignment6/main.cpp
-	"../include/Board.h"
-	"../include/Piece.h"
+1525697214 source:/home/sam/Desktop/C++/Assignment6/main.cpp
+	"Board.h"
 	<iostream>
 
 1525608512 /home/sam/Desktop/C++/Assignment6/Board.h
@@ -95,11 +94,10 @@
 	<iostream>
 	"Board.h"
 
-1525707591 source:/home/sam/Desktop/C++/Assignment6/src/Board.cpp
+1525709432 source:/home/sam/Desktop/C++/Assignment6/src/Board.cpp
 	"../include/Board.h"
-	"../include/Piece.h"
 
-1525707591 /home/sam/Desktop/C++/Assignment6/include/Board.h
+1525709425 /home/sam/Desktop/C++/Assignment6/include/Board.h
 	<iostream>
 	<vector>
 	"Piece.h"
@@ -129,7 +127,7 @@
 1525639746 source:/home/sam/Desktop/C++/Assignment6/src/IllegalCoordinateException.cpp
 	"../include/IllegalCoordinateException.h"
 
-1525706465 /home/sam/Desktop/C++/Assignment6/include/Piece.h
+1525709802 /home/sam/Desktop/C++/Assignment6/include/Piece.h
 	<iostream>
 	"IllegalCharException.h"
 
