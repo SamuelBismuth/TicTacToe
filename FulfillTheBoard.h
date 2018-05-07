@@ -28,6 +28,7 @@ class FulfillTheBoard {
 
         char operator= (const char pawn);
         operator char();
+	bool operator== (char const& pawn);
 
     protected:
 
