@@ -1,7 +1,7 @@
 /** Includes */
 
-#include "include/Board.h"
-#include "include/FulfillTheBoard.h"
+#include "../include/Board.h"
+#include "../include/FulfillTheBoard.h"
 
 #include <iostream>
 using namespace std;

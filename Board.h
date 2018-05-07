@@ -10,9 +10,6 @@
 #include "IllegalCharException.h"
 #include "FulfillTheBoard.h"
 
-// This allow to use the class FulfillTheBoard in the class Board and
-// use the class Board in the class FulfillTheBoard too.
-
 class FulfillTheBoard;
 
 using namespace std;

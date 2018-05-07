@@ -5,10 +5,11 @@
 
 #include <iostream>
 
-// This allow to use the class FulfillTheBoard in the class Board and
-// use the class Board in the class FulfillTheBoard too.
-
+#include "IllegalCharException.h"
 #include "Board.h"
+#include "FulfillTheBoard.h"
+
+class Board;
 
 using namespace std;
 

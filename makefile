@@ -25,8 +25,8 @@ IllegalCoordinateException.o: $(SRC_DIR)/IllegalCoordinateException.cpp  $(HEADE
 IllegalCharException.o: $(SRC_DIR)/IllegalCharException.cpp  $(HEADERS_DIR)/IllegalCharException.h
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/IllegalCharException.cpp -o IllegalCharException.o
 
-main.o: $(CURRENT_DIR)/main.cpp $(HEADERS_DIR)/Board.h $(HEADERS_DIR)/FulfillTheBoard.h
-	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
+main.o: $(CURRENT_DIR)/Main/main.cpp $(HEADERS_DIR)/Board.h $(HEADERS_DIR)/FulfillTheBoard.h
+	$(CXX) $(CXXFLAGS) -c $(CURRENT_DIR)/Main/main.cpp -o main.o
 
 clean:
 	rm *.o a.out
