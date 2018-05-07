@@ -4,8 +4,12 @@ CXXFLAGS = -std=c++17
 SRC_DIR = $(CURRENT_DIR)/src
 HEADERS_DIR = $(CURRENT_DIR)/include
 
-all: Board.o FulfillTheBoard.o IllegalCharException.o IllegalCoordinateException.o
-	$(CXX) $(CXXFLAGS) Board.o FulfillTheBoard.o IllegalCoordinateException.o IllegalCharException.o
+all: main.o Board.o FulfillTheBoard.o IllegalCharException.o IllegalCoordinateException.o
+	$(CXX) $(CXXFLAGS) Board.o FulfillTheBoard.o IllegalCoordinateException.o IllegalCharException.o main.o
+	#ifndef DOT
+		#sudo apt install doxygen
+	#endif
+		#doxygen main.cpp Board.cpp Board.h FulfillTheBoard.cpp FulfillTheBoard.h IllegalCoordinateException.cpp IllegalCoordinateException.h IllegalCharException.cpp IllegalCharException.h
 	./a.out
 	
 Board.o: $(SRC_DIR)/Board.cpp  $(HEADERS_DIR)/Board.h  $(HEADERS_DIR)/FulfillTheBoard.h 
@@ -19,6 +23,9 @@ IllegalCoordinateException.o: $(SRC_DIR)/IllegalCoordinateException.cpp  $(HEADE
 	
 IllegalCharException.o: $(SRC_DIR)/IllegalCharException.cpp  $(HEADERS_DIR)/IllegalCharException.h
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/IllegalCharException.cpp -o IllegalCharException.o
+
+main.o: $(CURRENT_DIR)/Main/main.cpp $(HEADERS_DIR)/Board.h $(HEADERS_DIR)/FulfillTheBoard.h
+	$(CXX) $(CXXFLAGS) -c $(CURRENT_DIR)/Main/main.cpp -o main.o
 
 clean:
 	rm *.o a.out
