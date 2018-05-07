@@ -8,6 +8,8 @@
 #include "IllegalCharException.h"
 #include "Board.h"
 
+class Board;
+
 using namespace std;
 
 /**
