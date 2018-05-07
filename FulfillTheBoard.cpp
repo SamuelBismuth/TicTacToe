@@ -24,7 +24,7 @@ FulfillTheBoard::FulfillTheBoard(int x, int y, Board* board) {
  * \exception IllegalCharException : if the pawn change from '.', 'X' or 'O'.
  * \return the pawn.
  */
-char FulfillTheBoard::operator= (char pawn) {
+char FulfillTheBoard::operator= (const char pawn) {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
         throw IllegalCharException(pawn);
     board->setPawn(pawn, x, y);
@@ -35,7 +35,7 @@ char FulfillTheBoard::operator= (char pawn) {
  * \brief overloading the operator char.
  * \return the good place in the board.
  */
-FulfillTheBoard::operator char() {
+FulfillTheBoard::operator char() const {
     return board->getMatrix()[x][y];
 }
 
