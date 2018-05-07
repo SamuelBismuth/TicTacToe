@@ -50,7 +50,7 @@ FulfillTheBoard::operator char() {
  * \return os.
  * Complexity : O(1).
  */
-ostream& operator<< (ostream& os, const FulfillTheBoard& fulfillTheBoard) {
+ostream& operator<< (ostream& os, FulfillTheBoard& fulfillTheBoard) {
     os << fulfillTheBoard.board->getMatrix()[fulfillTheBoard.x][fulfillTheBoard.y] << endl;
     return os;
 }

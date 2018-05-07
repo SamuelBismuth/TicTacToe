@@ -41,7 +41,7 @@ class FulfillTheBoard {
 
         // Operator << to print the Board.
 
-        friend ostream& operator<< (ostream& os, const FulfillTheBoard& fulfillTheBoard);
+        friend ostream& operator<< (ostream& os, FulfillTheBoard& fulfillTheBoard);
 };
 
 #endif // FULFILLTHEBOARD_H
