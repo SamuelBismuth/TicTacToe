@@ -7,9 +7,6 @@
 
 #include "IllegalCharException.h"
 #include "Board.h"
-#include "FulfillTheBoard.h"
-
-class Board;
 
 using namespace std;
 
