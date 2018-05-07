@@ -27,7 +27,7 @@ class FulfillTheBoard {
         //Operators
 
         char operator= (const char pawn);
-        operator char();
+        operator char() const;
 
     protected:
 
