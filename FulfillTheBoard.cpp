@@ -39,7 +39,7 @@ FulfillTheBoard::operator char() {
     return board->getMatrix()[x][y];
 }
 
-bool FulfillTheBoard::operator== (char const& pawn) const {
+bool FulfillTheBoard::operator== (const char& pawn) {
     if (board->getMatrix()[x][y] == pawn)
 	return true;
     return false;
