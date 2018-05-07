@@ -1,0 +1,25 @@
+/** Include */
+
+#include "../include/IllegalCoordinateException.h"
+
+/**
+ * \brief Implementation of the method for the class IllegalCoordinateException.
+ */
+
+/**
+ * \brief Constructor for the exception.
+ * \param pawn
+ */
+IllegalCoordinateException::IllegalCoordinateException(int x, int y) {
+    this->x = x;
+    this->y = y;
+}
+
+/**
+ * \brief get the wrong coordinate.
+ * \return a string which contains the wrong coordinate.
+ */
+string IllegalCoordinateException::theCoordinate() const {
+    return to_string(x) + "," + to_string(y);
+}
+
