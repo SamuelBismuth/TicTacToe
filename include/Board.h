@@ -27,7 +27,7 @@ class Board {
         //Constructors
 
         Board(const Board& board);        //Copy constructor.
-        Board(const size_t dimension);    //Constructor.
+        Board(size_t dimension);    //Constructor. TODO: const
 
         //D_tor
 
@@ -51,6 +51,10 @@ class Board {
 
         size_t dimension;
         Piece** matrix;
+
+        //help function.
+
+        void fill(char pawn);
 
         // Operator << to print the Board.
 

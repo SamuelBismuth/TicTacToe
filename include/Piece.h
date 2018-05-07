@@ -27,6 +27,15 @@ class Piece {
         void operator= (char pawn);
         operator char() const;
 
+        //Getter
+
+        char get_piece() const;
+
+        //Setter
+
+        void set_piece(char pawn);
+
+
     protected:
 
     private:
@@ -37,7 +46,7 @@ class Piece {
 
         // Operator << to print the Board.
 
-        friend ostream& operator<< (ostream& os, const Piece& piece);
+        friend ostream& operator<< (ostream& os, Piece& piece);
 };
 
 #endif // FULFILLTHEBOARD_H

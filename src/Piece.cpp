@@ -1,13 +1,13 @@
 /** Include */
 
-#include "Piece.h"
+#include "../include/Piece.h"
 
 /**
  * \brief Implementation of the method for the class FulfillTheBoard.
  */
 
  Piece::Piece() {
-    this->piece = '.';
+    set_piece('.');
  }
 
 /**
@@ -17,7 +17,7 @@
  * \param board
  */
 Piece::Piece(char pawn) {
-    piece = pawn;
+    set_piece(pawn);
 }
 
 /**
@@ -27,9 +27,7 @@ Piece::Piece(char pawn) {
  * \return the pawn.
  */
 void Piece::operator= (char pawn) {
-    if (pawn != '.' && pawn != 'X' && pawn != 'O')
-        throw IllegalCharException(pawn);
-    piece = pawn;
+    set_piece(pawn);
 }
 
 /**
@@ -37,7 +35,26 @@ void Piece::operator= (char pawn) {
  * \return the good place in the board.
  */
 Piece::operator char() const {
+    return get_piece();
+}
+
+/**
+ * \brief Get piece.
+ * \return the piece.
+ */
+char Piece::get_piece() const {
     return piece;
+}
+
+/**
+ * \brief Set piece.
+ * \param pawn.
+ * \exception if the char is not good.
+ */
+void Piece::set_piece(char pawn) {
+    if (pawn != '.' && pawn != 'X' && pawn != 'O')
+        throw IllegalCharException(pawn);
+    piece = pawn;
 }
 
 //privates methods.
@@ -51,8 +68,8 @@ Piece::operator char() const {
  * \return os.
  * Complexity : O(1).
  */
-ostream& operator<< (ostream& os, const Piece& piece) {
-    os << piece.piece;
+ostream& operator<< (ostream& os, Piece& piece) {
+    os << piece.get_piece();
     return os;
 }
 

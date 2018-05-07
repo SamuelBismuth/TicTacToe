@@ -4,9 +4,13 @@ CXXFLAGS = -std=c++17
 SRC_DIR = $(CURRENT_DIR)/src
 HEADERS_DIR = $(CURRENT_DIR)/include
 
-all: Board.o Piece.o IllegalCharException.o IllegalCoordinateException.o
-	$(CXX) $(CXXFLAGS) Board.o Piece.o IllegalCoordinateException.o IllegalCharException.o
+all: main.o Board.o Piece.o IllegalCharException.o IllegalCoordinateException.o
+	$(CXX) $(CXXFLAGS) Board.o Piece.o IllegalCoordinateException.o IllegalCharException.o main.o
+	./a.out
 
+main.o: $(CURRENT_DIR)/main.cpp $(HEADERS_DIR)/Board.h $(HEADERS_DIR)/Piece.h
+	$(CXX) $(CXXFLAGS) -c $(CURRENT_DIR)/main.cpp -o main.o
+	
 Board.o: $(SRC_DIR)/Board.cpp $(HEADERS_DIR)/Board.h $(HEADERS_DIR)/Piece.h 
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Board.cpp -o Board.o
 	

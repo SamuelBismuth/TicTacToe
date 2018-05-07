@@ -1,8 +1,9 @@
 /** Includes */
 
-#include "Board.h"
+#include "include/Board.h"
 
 #include <iostream>
+
 using namespace std;
 
 int main() {
