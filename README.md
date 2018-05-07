@@ -15,4 +15,4 @@ Type the command line "make all" in your terminal.
 
 # attention
 
-We put the files Board.cpp in the main folder for somoe reasons of automatics tests.
+We put all the h files in the main folder for somoe reasons of automatics tests.
