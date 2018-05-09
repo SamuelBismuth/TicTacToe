@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1525719629 source:/home/sam/Desktop/C++/Assignment 7/main.cpp
+	"include/Board.h"
+	<iostream>
+
+1525723212 /home/sam/Desktop/C++/Assignment 7/include/Board.h
+	<iostream>
+	<vector>
+	"Piece.h"
+	"IllegalCoordinateException.h"
+	"IllegalCharException.h"
+
+1525723212 /home/sam/Desktop/C++/Assignment 7/include/Piece.h
+	<iostream>
+	"IllegalCharException.h"
+
+1525723212 /home/sam/Desktop/C++/Assignment 7/include/IllegalCharException.h
+	<iostream>
+	<exception>
+	<string>
+
+1525723212 /home/sam/Desktop/C++/Assignment 7/include/IllegalCoordinateException.h
+	<iostream>
+	<exception>
+	<string>
+
+1525725205 source:/home/sam/Desktop/C++/Assignment 7/src/Board.cpp
+	"../include/Board.h"
+
+1525725205 source:/home/sam/Desktop/C++/Assignment 7/src/IllegalCharException.cpp
+	"../include/IllegalCharException.h"
+
+1525725205 source:/home/sam/Desktop/C++/Assignment 7/src/IllegalCoordinateException.cpp
+	"../include/IllegalCoordinateException.h"
+
+1525725205 source:/home/sam/Desktop/C++/Assignment 7/src/Piece.cpp
+	"../include/Piece.h"
+
