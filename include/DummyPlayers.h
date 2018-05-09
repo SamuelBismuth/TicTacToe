@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "../include/Player.h"
+#include "Player.h"
 
 /*
 	This player scans the board looping on x then on y,
