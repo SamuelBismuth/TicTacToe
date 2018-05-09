@@ -1,9 +1,11 @@
 #include "TicTacToe.h"
 
-TicTacToe::TicTacToe()
+TicTacToe::TicTacToe(uint dimension)
 {
-    //ctor
+    this->dimension = dimension;
 }
+
+
 
 TicTacToe::~TicTacToe()
 {

@@ -5,12 +5,13 @@
 class TicTacToe
 {
     public:
-        TicTacToe();
+        TicTacToe(uint dimension);
         virtual ~TicTacToe();
 
     protected:
 
     private:
+        uint size;
 };
 
 #endif // TICTACTOE_H
