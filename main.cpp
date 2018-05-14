@@ -46,7 +46,7 @@ int main() {
         And the winner is YXPlayer, playing as X!
 	*/
 
-//	playAndPrintResults(game, player1, player3);
+	playAndPrintResults(game, player1, player3);
 //	/*
 //		The final board is
 //		X...

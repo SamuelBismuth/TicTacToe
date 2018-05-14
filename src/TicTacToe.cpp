@@ -12,30 +12,79 @@ TicTacToe::~TicTacToe()
     //dtor
 }
 
+/**
+ * \param xPlayer
+ * \param oPlayer
+ * This method manage all the game between two players. the first one plays with X, the second with O.
+ */
 void TicTacToe::play(Player& xPlayer, Player& oPlayer)
 {
-    resetTheBoard();
-    xPlayer.setChar('X');
-    oPlayer.setChar('0');
-    size_t numberOfCase = getDimension() * getDimension();
     size_t count = 0;
+    size_t numberOfCase = Start(xPlayer,oPlayer);
     while (count < numberOfCase) {
-        vector<size_t> point = xPlayer.play(board());
-        boardOfTheGame[point] = 'X';
-        if (isGameWinned(board(), point, 'X')) {
-            winnerOfTheGame = &xPlayer;
-            return;
-        }
-        point = oPlayer.play(board());
-        boardOfTheGame[point] = 'O';
-        if (isGameWinned(board(), point, 'O')) {
-            winnerOfTheGame = &oPlayer;
-            return;
-        }
+        TurnOfplayerX(xPlayer);
+        if(Won) return;
+        
+        TurnOfplayerO(oPlayer);
+        if(Won) return;
+        
         count += 2;
     }
     
 }
+
+/**
+ * \param xPlayer
+ * \param oPlayer
+ * This method Initialise the game to start a new game.
+ * \return the number of case in the new board.
+ */
+size_t TicTacToe::Start(Player& xPlayer, Player& oPlayer){
+    resetTheBoard();
+    Won = false ;
+    illegalPlayer = false;
+    xPlayer.setChar('X');
+    oPlayer.setChar('0');
+    size_t numberOfCase = getDimension() * getDimension();
+    return numberOfCase;
+}
+
+/**
+ * \param Xplayer
+ * This method manage the turn of the X player.
+ */
+void TicTacToe::TurnOfplayerX(Player& Xplayer){
+    vector<size_t> point = Xplayer.play(board());
+    if (boardOfTheGame[point]=='.' && !illegalPlayer)
+        boardOfTheGame[point] = 'X';
+    else{
+       illegalPlayer = true ;
+     return ;
+        }
+    if (isGameWinned(board(), point, 'X') || illegalPlayer) {
+        winnerOfTheGame = &Xplayer;
+        Won = true ;
+  }
+}
+
+/**
+ * \param Oplayer
+ * This method manage the turn of the X player.
+ */
+void TicTacToe::TurnOfplayerO(Player& Oplayer){
+    vector<size_t> point = Oplayer.play(board());
+    if (boardOfTheGame[point]=='.' && !illegalPlayer)
+        boardOfTheGame[point] = 'O';
+    else{
+        illegalPlayer = true ;
+        return ;
+    }
+    if (isGameWinned(board(), point, 'O') || illegalPlayer) {
+        winnerOfTheGame = &Oplayer;
+        Won = true ;
+    }
+}
+    
 
 Board TicTacToe::board() const
 {

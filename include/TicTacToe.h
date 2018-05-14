@@ -12,6 +12,9 @@ class TicTacToe
         virtual ~TicTacToe();
         void play(Player& xPlayer, Player& oPlayer);
         void resetTheBoard();
+        bool Won,illegalPlayer;
+
+
         Board board() const;
         Player& winner() const;
         size_t getDimension() const;
@@ -22,6 +25,9 @@ class TicTacToe
     private:
         bool isGameWinned(Board board, vector<size_t> point, char player);
         bool isPlayer(vector<size_t> point, char player);
+        size_t Start(Player& xPlayer, Player& oPlayer);
+        void TurnOfplayerX(Player& player);
+        void TurnOfplayerO(Player& player);
         size_t dimension;
         Board boardOfTheGame;
         Player* winnerOfTheGame;
