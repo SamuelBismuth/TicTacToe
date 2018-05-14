@@ -1,16 +1,10 @@
-#ifndef CHAMPION_H
-#define CHAMPION_H
+#pragma once
 
+#include <iostream>
+#include "Player.h"
 
-class Champion
-{
+class Champion: public Player {
     public:
-        Champion();
-        virtual ~Champion();
-
-    protected:
-
-    private:
+        const string name() const override { return "Johann & Samuel"; }
+        const std::vector<size_t> play(const Board& board) override;
 };
-
-#endif // CHAMPION_H

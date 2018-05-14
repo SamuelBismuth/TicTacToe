@@ -1,11 +1,7 @@
-include "Champion.h"
+#include "../include/Champion.h"
 
-Champion::Champion()
-{
-    //ctor
-}
 
-Champion::~Champion()
-{
-    //dtor
+const vector<size_t> Champion::play(const Board& board) {
+    //our win logic here.
+    return {0,0};  // stam
 }

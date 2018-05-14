@@ -26,6 +26,7 @@ class Board {
 
         //Constructors
 
+        Board();
         Board(const Board& board);        //Copy constructor.
         Board(size_t dimension);    //Constructor. TODO: const
 
@@ -35,13 +36,23 @@ class Board {
 
         //Operators
 
-        Piece& operator[] (vector<int> point);
+        Piece& operator[] (vector<size_t> point) const;
         Board& operator= (char pawn);
         Board& operator= (const Board& board);
 
-        //Getters.
+        //size
+
+        size_t size() const;
+
+        //Getter.
 
         size_t getDimension() const;
+
+        //Setter
+
+        void setBoard(const size_t dimension);
+        void setDimension(const size_t dimension);
+        void setMatrix(const size_t dimension);
 
     protected:
 

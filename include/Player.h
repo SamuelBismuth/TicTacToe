@@ -1,18 +1,19 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <iostream>
+#include <string>
 
-virtual class Player
+#include "Board.h"
+
+class Player
 {
     public:
-        Player();
-        virtual ~Player();
-
-    protected:
-
-    private:
-        virtual const string name() const;
-        virtual const Coordinate play(const Board& board);
+        virtual const std::string name() const {return "BasicPlayer";}
+        virtual const std::vector<size_t> play(const Board& board);
+        char getChar() const;
+        void setChar(char pawn);
+        char myChar;
 };
 
 #endif // PLAYER_H

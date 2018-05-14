@@ -6,6 +6,13 @@
  * \brief Implementation of the method for the class Board.
  */
 
+ /**
+ * \brief Constructor for the object Board.
+ * complexity : O(1).
+ */
+Board::Board() {
+}
+
 /**
  * \brief Constructor for the object Board.
  * \param dimension
@@ -58,7 +65,7 @@ Board::~Board() {
  * \return the object Piece.
  * complexity : O(1).
  */
-Piece& Board::operator[] (vector<int> point) {
+Piece& Board::operator[] (vector<size_t> point) const {
     if (point[0] < 0 || point[0] >= dimension || point[1] < 0 || point[1] >= dimension)
         throw IllegalCoordinateException(point[0], point[1]);
     return matrix[point[0]][point[1]];
@@ -97,6 +104,13 @@ Board& Board::operator= (const Board& board) {
     return *this;
 }
 
+//size
+
+size_t Board::size() const {
+    return getDimension();
+}
+
+
 //Getter
 
 /**
@@ -105,6 +119,27 @@ Board& Board::operator= (const Board& board) {
  */
 size_t Board::getDimension() const {
     return dimension;
+}
+
+//Setter
+
+/**
+ * \brief set a new Board.
+ * \param dimension
+ */
+void Board::setBoard(const size_t dimension) {
+    setDimension(dimension);
+    setMatrix(dimension);
+}
+
+void Board::setDimension(const size_t dimension) {
+    this->dimension = dimension;
+}
+
+void Board::setMatrix(const size_t dimension) {
+    matrix = new Piece*[dimension];
+    for(size_t i = 0; i < dimension; i++)
+        matrix[i] = new Piece[dimension];
 }
 
 //privates methods.

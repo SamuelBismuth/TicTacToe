@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <iostream>
+
 #include "Player.h"
 
 /*
@@ -13,7 +15,7 @@
 class XYPlayer: public Player {
 public:
 	const string name() const override { return "XYPlayer"; }
-	const Coordinate play(const Board& board) override;
+	const std::vector<size_t> play(const Board& board) override;
 };
 
 
@@ -24,7 +26,7 @@ public:
 class YXPlayer: public Player {
 public:
 	const string name() const override { return "YXPlayer"; }
-	const Coordinate play(const Board& board) override;
+	const std::vector<size_t> play(const Board& board) override;
 };
 
 
@@ -36,7 +38,7 @@ public:
 class IllegalPlayer: public Player {
 public:
 	const string name() const override { return "YXPlayer"; }
-	const Coordinate play(const Board& board) override;
+	const std::vector<size_t> play(const Board& board) override;
 };
 
 
@@ -47,5 +49,5 @@ public:
 class ExceptionPlayer: public Player {
 public:
 	const string name() const override { return "YXPlayer"; }
-	const Coordinate play(const Board& board) override;
+	const std::vector<size_t> play(const Board& board) override;
 };
