@@ -9,8 +9,8 @@
 class Player
 {
     public:
-        virtual const std::string name() const {return "BasicPlayer";}
-        virtual const std::vector<size_t> play(const Board& board);
+        virtual const std::string name() const { return "BasicPlayer"; }
+        virtual const std::vector<size_t> play(const Board& board) { return {0, 0}; }
         char getChar() const;
         void setChar(char pawn);
         char myChar;
