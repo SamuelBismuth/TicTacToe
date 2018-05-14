@@ -57,7 +57,7 @@ void TicTacToe::TurnOfplayerX(Player& Xplayer){
     vector<size_t> point = Xplayer.play(board());
     if (boardOfTheGame[point]=='.' && !illegalPlayer)
         boardOfTheGame[point] = 'X';
-    else{
+    else if (!illegalPlayer){
        illegalPlayer = true ;
      return ;
         }
@@ -75,7 +75,7 @@ void TicTacToe::TurnOfplayerO(Player& Oplayer){
     vector<size_t> point = Oplayer.play(board());
     if (boardOfTheGame[point]=='.' && !illegalPlayer)
         boardOfTheGame[point] = 'O';
-    else{
+    else if (!illegalPlayer){
         illegalPlayer = true ;
         return ;
     }

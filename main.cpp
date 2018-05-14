@@ -57,7 +57,7 @@ int main() {
 //	*/
 //
 //
-//	playAndPrintResults(game, player3, player1);
+	playAndPrintResults(game, player3, player1);
 //	/*
 //		The final board is
 //		XO..
