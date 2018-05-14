@@ -11,9 +11,11 @@ class TicTacToe
         TicTacToe(size_t dimension);
         virtual ~TicTacToe();
         void play(Player& xPlayer, Player& oPlayer);
+        void resetTheBoard();
         Board board() const;
         Player& winner() const;
         size_t getDimension() const;
+
 
     protected:
 

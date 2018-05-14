@@ -14,6 +14,7 @@ TicTacToe::~TicTacToe()
 
 void TicTacToe::play(Player& xPlayer, Player& oPlayer)
 {
+    resetTheBoard();
     xPlayer.setChar('X');
     oPlayer.setChar('0');
     size_t numberOfCase = getDimension() * getDimension();
@@ -33,6 +34,7 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
         }
         count += 2;
     }
+    
 }
 
 Board TicTacToe::board() const
@@ -64,14 +66,14 @@ Player& TicTacToe::winner() const {
  * \return true if the game is over, else false.
  */
  bool TicTacToe::isGameWinned(Board board, vector<size_t> point, char player) {
-     count up = {1, true};
-     count down = {0, true};
-	 count right = {1, true};
-	 count left = {0, true};
-	 count diagonalLeftDown = {1, true};
-	 count diagonalLeftUp = {1, true};
-	 count diagonalRightDown = {0, true};
-	 count diagonalRightUp = {0, true};
+     Count up = {1, true};
+     Count down = {0, true};
+	 Count right = {1, true};
+	 Count left = {0, true};
+	 Count diagonalLeftDown = {1, true};
+	 Count diagonalLeftUp = {1, true};
+	 Count diagonalRightDown = {0, true};
+	 Count diagonalRightUp = {0, true};
 	 for (int side = 1; side < board.getDimension(); side++) {
         if (isPlayer({point[0], point[1] + side}, player) && up.flag)
             up.sum++;
@@ -110,8 +112,9 @@ Player& TicTacToe::winner() const {
 	int sumSide = right.sum + left.sum;
 	int sumFirstDiagonal = diagonalLeftDown.sum + diagonalRightUp.sum;
 	int sumSecondDiagonal = diagonalLeftUp.sum + diagonalRightDown.sum;
-	if (sumHigh  == board.getDimension() || sumSide == board.getDimension() || sumFirstDiagonal == board.getDimension() || sumSecondDiagonal == board.getDimension())
-        return true;
+     if (sumHigh  == board.getDimension() || sumSide == board.getDimension() || sumFirstDiagonal == board.getDimension() || sumSecondDiagonal == board.getDimension()) {
+         return true;
+     }
     return false;
 }
 
@@ -127,6 +130,10 @@ bool TicTacToe::isPlayer(vector<size_t> point, char player) {
 	if (player == pawn)
 		return true;
 	return false;
+}
+
+void TicTacToe::resetTheBoard(){
+    boardOfTheGame = '.';
 }
 
 
