@@ -81,7 +81,7 @@ void TicTacToe::resetTheBoard(){
 bool TicTacToe::turn(char player, Player& xPlayer, Player& oPlayer) {
     try
         {
-            std::vector<std::size_t> point;
+            Coordinate point;
             player == 'X' ? point = xPlayer.play(board()) : point = oPlayer.play(board());
             if (boardOfTheGame[point] != '.')
                 throw std::string("Illegal Player");
@@ -115,7 +115,7 @@ bool TicTacToe::turn(char player, Player& xPlayer, Player& oPlayer) {
  * \param player.
  * \return true if the game is over, else false.
  */
- bool TicTacToe::isGameWinned(Board board, std::vector<std::size_t> point, char player) {
+ bool TicTacToe::isGameWinned(Board board, Coordinate point, char player) {
      Count up = {1, true};
      Count down = {0, true};
 	 Count right = {1, true};
@@ -173,7 +173,7 @@ bool TicTacToe::turn(char player, Player& xPlayer, Player& oPlayer) {
  * \param player
  * This method \return true is the chip is one chip of the player, and \return false if not.
  */
-bool TicTacToe::isPlayer(std::vector<std::size_t> point, char player) {
+bool TicTacToe::isPlayer(Coordinate point, char player) {
     if (point[0] < 0 || point[0] >= dimension || point[1] < 0 || point[1] >= dimension)
         return false;
     char pawn = boardOfTheGame[point];

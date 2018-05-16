@@ -8,6 +8,9 @@
 #include "Player.h"
 #include "Board.h"
 
+
+typedef std::vector<std::size_t> Coordinate;
+
 /**
  * \brief This class is a TicTacToe game.
  * \author Johann and Samuel.
@@ -31,8 +34,8 @@ class TicTacToe
 
         //help functions.
 
-        bool isGameWinned(Board board, std::vector<std::size_t> point, char player);
-        bool isPlayer(std::vector<std::size_t> point, char player);
+        bool isGameWinned(Board board, Coordinate point, char player);
+        bool isPlayer(Coordinate point, char player);
         void resetTheBoard();
         bool turn(char player, Player& xPlayer, Player& oPlayer);
 
