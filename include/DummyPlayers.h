@@ -9,7 +9,7 @@
 
 #include "Player.h"
 
-using namespace std;
+using namespace std; // just for the unit test.
 
 /*
 	This player scans the board looping on x then on y,
