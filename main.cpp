@@ -47,16 +47,16 @@ int main() {
 	*/
 
 	playAndPrintResults(game, player1, player3);
-//	/*
-//		The final board is
-//		X...
-//		....
-//		....
-//		....
-//        And the winner is XYPlayer, playing as X!
-//	*/
-//
-//
+	/*
+		The final board is
+		X...
+		....
+        ....
+		....
+        And the winner is XYPlayer, playing as X!
+	*/
+
+
 	playAndPrintResults(game, player3, player1);
 //	/*
 //		The final board is
@@ -68,6 +68,16 @@ int main() {
 //	*/
 //
    playAndPrintResults(game, player2, player4);
+	/*
+		The final board is
+		XO..
+		....
+		....
+		....
+        And the winner is XYPlayer, playing as O!
+    */
+
+	playAndPrintResults(game, player2, player4);
 //	/*
 //		The final board is
 //		X...
