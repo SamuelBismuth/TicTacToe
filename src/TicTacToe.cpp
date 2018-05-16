@@ -69,7 +69,9 @@ void TicTacToe::TurnOfplayerX(Player& Xplayer){
         Won = true ;
   }
 } catch (...) {
-    illegalPlayer = true ; }
+    illegalPlayer = true ;
+    boardOfTheGame[{0,0}] = 'X';
+}
 }
 
 /**
@@ -89,7 +91,10 @@ void TicTacToe::TurnOfplayerX(Player& Xplayer){
         winnerOfTheGame = &Oplayer;
         Won = true ;
     }
-    } catch (...) { illegalPlayer = true ;}
+    } catch (...) {
+        illegalPlayer = true;
+        boardOfTheGame[{0,0}] = 'X';
+    }
 }
 
     
