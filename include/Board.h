@@ -62,7 +62,7 @@ class Board {
 
         // Operator << to print the Board.
 
-        friend ostream& operator<< (ostream& os, const Board& board);
+        friend std::ostream& operator<< (std::ostream& os, const Board& board);
 };
 
 #endif // BOARD_H

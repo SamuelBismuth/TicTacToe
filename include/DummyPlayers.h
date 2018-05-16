@@ -1,5 +1,6 @@
 /**
  * This file have been took from our Teacher's github : https://github.com/erelsgl/ariel-cpp-5778.git.
+ * It was not allowed to change this file. Since we use vector and not the Object Coordinate, we only change this.
  */
 
 #pragma once
@@ -14,8 +15,8 @@
 */
 class XYPlayer: public Player {
 public:
-	const string name() const override { return "XYPlayer"; }
-	const std::vector<size_t> play(const Board& board) override;
+	const std::string name() const override { return "XYPlayer"; }
+	const std::vector<std::size_t> play(const Board& board) override;
 };
 
 
@@ -25,8 +26,8 @@ public:
 */
 class YXPlayer: public Player {
 public:
-	const string name() const override { return "YXPlayer"; }
-	const std::vector<size_t> play(const Board& board) override;
+	const std::string name() const override { return "YXPlayer"; }
+	const std::vector<std::size_t> play(const Board& board) override;
 };
 
 
@@ -37,8 +38,8 @@ public:
 */
 class IllegalPlayer: public Player {
 public:
-	const string name() const override { return "YXPlayer"; }
-	const std::vector<size_t> play(const Board& board) override;
+	const std::string name() const override { return "YXPlayer"; }
+	const std::vector<std::size_t> play(const Board& board) override;
 };
 
 
@@ -48,6 +49,6 @@ public:
 */
 class ExceptionPlayer: public Player {
 public:
-	const string name() const override { return "YXPlayer"; }
-	const std::vector<size_t> play(const Board& board) override;
+	const std::string name() const override { return "YXPlayer"; }
+	const std::vector<std::size_t> play(const Board& board) override;
 };

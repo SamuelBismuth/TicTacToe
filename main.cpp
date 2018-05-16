@@ -7,9 +7,9 @@
 #include "Champion.h"
 
 void printResults(const TicTacToe& game) {
-	cout << endl << "The final board is " << endl << game.board();
-	cout << "And the winner is " << game.winner().name()
-	     << ", playing as " << game.winner().getChar() << "!" << endl;
+	std::cout << std::endl << "The final board is " << std::endl << game.board();
+	std::cout << "And the winner is " << game.winner().name()
+	     << ", playing as " << game.winner().getChar() << "!" << std::endl;
 }
 
 void playAndPrintResults(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
@@ -19,8 +19,8 @@ void playAndPrintResults(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
 
 void playAndPrintWinner(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
 	game.play(xPlayer, oPlayer);
-	cout << "The winner is " << game.winner().name()
-	     << ", playing as " << game.winner().getChar() << "!" << endl;
+	std::cout << "The winner is " << game.winner().name()
+	     << ", playing as " << game.winner().getChar() << "!" << std::endl;
 }
 
 int main() {

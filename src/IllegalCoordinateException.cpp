@@ -19,7 +19,7 @@ IllegalCoordinateException::IllegalCoordinateException(int x, int y) {
  * \brief get the wrong coordinate.
  * \return a string which contains the wrong coordinate.
  */
-string IllegalCoordinateException::theCoordinate() const {
-    return to_string(x) + "," + to_string(y);
+std::string IllegalCoordinateException::theCoordinate() const {
+    return std::to_string(x) + "," + std::to_string(y);
 }
 

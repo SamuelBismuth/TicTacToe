@@ -1,41 +1,55 @@
 #ifndef TICTACTOE_H
 #define TICTACTOE_H
 
+/** Includes */
+
 #include <iostream>
+
 #include "Player.h"
 #include "Board.h"
 
+/**
+ * \brief This class is a TicTacToe game.
+ * \author Johann and Samuel.
+ */
 class TicTacToe
 {
     public:
+
+        //constructor // destructor.
+
         TicTacToe(size_t dimension);
         virtual ~TicTacToe();
+
+        //functions used in the main file for the good of the game.
+
         void play(Player& xPlayer, Player& oPlayer);
-        void resetTheBoard();
-        bool Won,illegalPlayer;
-
-
         Board board() const;
         Player& winner() const;
-        size_t getDimension() const;
-
-
-    protected:
 
     private:
-        bool isGameWinned(Board board, vector<size_t> point, char player);
-        bool isPlayer(vector<size_t> point, char player);
-        size_t Start(Player& xPlayer, Player& oPlayer);
-        void TurnOfplayerX(Player& player);
-        void TurnOfplayerO(Player& player);
+
+        //help functions.
+
+        bool isGameWinned(Board board, std::vector<std::size_t> point, char player);
+        bool isPlayer(std::vector<std::size_t> point, char player);
+        void resetTheBoard();
+        bool turn(char player, Player& xPlayer, Player& oPlayer);
+
+        //variables.
+
         size_t dimension;
         Board boardOfTheGame;
         Player* winnerOfTheGame;
 };
 
-#endif // TICTACTOE_H
-
+/**
+ * \brief structure Count.
+ * This structure is used to count the number of piece and know if the game is finish or not.
+ */
 typedef struct Count {
 	int sum;
 	bool flag;
 } count;
+
+#endif // TICTACTOE_H

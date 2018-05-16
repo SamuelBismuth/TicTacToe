@@ -1,4 +1,4 @@
-/** Includes */
+/** Include */
 
 #include "../include/Board.h"
 
@@ -7,11 +7,10 @@
  */
 
  /**
- * \brief Constructor for the object Board.
+ * \brief Empty constructor for the object Board.
  * complexity : O(1).
  */
-Board::Board() {
-}
+Board::Board() {}
 
 /**
  * \brief Constructor for the object Board.
@@ -19,10 +18,10 @@ Board::Board() {
  * This constructor build a matrix of dimension n and initialize all the case as Piece.
  * complexity : O(n) (such that n = dimension).
  */
-Board::Board(const size_t dimension) {
+Board::Board(const std::size_t dimension) {
     this->dimension = dimension;
     matrix = new Piece*[dimension];
-    for(size_t i = 0; i < dimension; i++)
+    for(std::size_t i = 0; i < dimension; i++)
         matrix[i] = new Piece[dimension];
 }
 
@@ -35,10 +34,10 @@ Board::Board(const size_t dimension) {
 Board::Board(const Board& board) {
     dimension = board.dimension;
     matrix = new Piece*[dimension];
-    for(size_t i = 0; i < dimension; i++)
+    for(std::size_t i = 0; i < dimension; i++)
         matrix[i] = new Piece[dimension];
-    for (size_t i = 0; i < dimension; i++) {
-        for (size_t j = 0; j < dimension; j++) {
+    for (std::size_t i = 0; i < dimension; i++) {
+        for (std::size_t j = 0; j < dimension; j++) {
             matrix[i][j].set_piece(board.matrix[i][j].get_piece());
         }
     }
@@ -50,8 +49,8 @@ Board::Board(const Board& board) {
  * Then free all the element of the array.
  */
 Board::~Board() {
-    for (int i = 0; i < dimension; ++i) {
-	delete[] matrix[i];
+    for (std::size_t i = 0; i < dimension; ++i) {
+        delete[] matrix[i];
     }
     delete[] matrix;
 }
@@ -65,7 +64,7 @@ Board::~Board() {
  * \return the object Piece.
  * complexity : O(1).
  */
-Piece& Board::operator[] (vector<size_t> point) const {
+Piece& Board::operator[] (std::vector<std::size_t> point) const {
     if (point[0] < 0 || point[0] >= dimension || point[1] < 0 || point[1] >= dimension)
         throw IllegalCoordinateException(point[0], point[1]);
     return matrix[point[0]][point[1]];
@@ -94,10 +93,10 @@ Board& Board::operator= (const Board& board) {
     this->~Board();
     dimension = board.getDimension();
     matrix = new Piece*[dimension];
-    for(size_t i = 0; i < dimension; i++)
+    for(std::size_t i = 0; i < dimension; i++)
         matrix[i] = new Piece[dimension];
-    for(size_t i = 0; i < dimension; i++) {
-        for(size_t j = 0; j < dimension; j++) {
+    for(std::size_t i = 0; i < dimension; i++) {
+        for(std::size_t j = 0; j < dimension; j++) {
             matrix[i][j].set_piece(board.matrix[i][j].get_piece());
         }
     }
@@ -106,7 +105,12 @@ Board& Board::operator= (const Board& board) {
 
 //size
 
-size_t Board::size() const {
+/**
+ * \brief get the dimension
+ * \return the dimension of the board.
+ * Complexity : O(1).
+ */
+std::size_t Board::size() const {
     return getDimension();
 }
 
@@ -116,8 +120,9 @@ size_t Board::size() const {
 /**
  * \brief get the dimension of the matrix.
  * \return the dimension.
+ * Complexity : O(1).
  */
-size_t Board::getDimension() const {
+std::size_t Board::getDimension() const {
     return dimension;
 }
 
@@ -126,29 +131,45 @@ size_t Board::getDimension() const {
 /**
  * \brief set a new Board.
  * \param dimension
+ * Complexity : O(n).
  */
-void Board::setBoard(const size_t dimension) {
+void Board::setBoard(const std::size_t dimension) {
     setDimension(dimension);
     setMatrix(dimension);
 }
 
-void Board::setDimension(const size_t dimension) {
+/**
+ * \brief set a new dimension.
+ * \param dimension
+ * Complexity : O(1).
+ */
+void Board::setDimension(const std::size_t dimension) {
     this->dimension = dimension;
 }
 
-void Board::setMatrix(const size_t dimension) {
+/**
+ * \brief set a new matrix.
+ * \param dimension
+ * Complexity : O(n).
+ */
+void Board::setMatrix(const std::size_t dimension) {
     matrix = new Piece*[dimension];
-    for(size_t i = 0; i < dimension; i++)
+    for(std::size_t i = 0; i < dimension; i++)
         matrix[i] = new Piece[dimension];
 }
 
 //privates methods.
 
+/**
+ * \brief fill the board with only one char.
+ * \param pawn
+ * Complexity : O(n^2).
+ */
 void Board::fill(char pawn) {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
         throw IllegalCharException(pawn);
-    for (size_t i = 0; i < dimension; i++) {
-        for (size_t j = 0; j < dimension; j++) {
+    for (std::size_t i = 0; i < dimension; i++) {
+        for (std::size_t j = 0; j < dimension; j++) {
             matrix[i][j] = pawn;
         }
     }
@@ -161,14 +182,14 @@ void Board::fill(char pawn) {
  * \param os
  * \param board
  * \return os.
- * Complexity : O(1).
+ * Complexity : O(n^2).
  */
-ostream& operator<< (ostream& os, const Board& board) {
-    for (size_t i = 0; i < board.getDimension(); i++) {
-        for (size_t j = 0; j < board.getDimension(); j++) {
+std::ostream& operator<< (std::ostream& os, const Board& board) {
+    for (std::size_t i = 0; i < board.getDimension(); i++) {
+        for (std::size_t j = 0; j < board.getDimension(); j++) {
             os << board.matrix[i][j].get_piece();
         }
-        os << endl;
+        os << std::endl;
     }
     return os;
 }

@@ -7,10 +7,8 @@
 
 #include "IllegalCharException.h"
 
-using namespace std;
-
 /**
- * \brief This class fulfill the Board.
+ * \brief This class represents a piece of the game.
  * \author Johann and Samuel.
  */
 class Piece {
@@ -35,9 +33,6 @@ class Piece {
 
         void set_piece(char pawn);
 
-
-    protected:
-
     private:
 
         //Variables of the object.
@@ -46,7 +41,7 @@ class Piece {
 
         // Operator << to print the Board.
 
-        friend ostream& operator<< (ostream& os, Piece& piece);
+        friend std::ostream& operator<< (std::ostream& os, Piece& piece);
 };
 
 #endif // FULFILLTHEBOARD_H

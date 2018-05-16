@@ -3,18 +3,21 @@
 #include "../include/Piece.h"
 
 /**
- * \brief Implementation of the method for the class FulfillTheBoard.
+ * \brief Implementation of the method for the class Piece.
  */
 
+ /**
+  * \brief Empty constructor.
+  * Complexity : O(1).
+  */
  Piece::Piece() {
     set_piece('.');
  }
 
 /**
- * \brief Constructor of the object FulfillTheBoard.
- * \param x
- * \param y
+ * \brief Constructor of the object Piece.
  * \param board
+ * Complexity : O(1).
  */
 Piece::Piece(char pawn) {
     set_piece(pawn);
@@ -25,6 +28,7 @@ Piece::Piece(char pawn) {
  * \param pawn
  * \exception IllegalCharException : if the pawn change from '.', 'X' or 'O'.
  * \return the pawn.
+ * Complexity : O(1).
  */
 void Piece::operator= (char pawn) {
     set_piece(pawn);
@@ -33,6 +37,7 @@ void Piece::operator= (char pawn) {
 /**
  * \brief overloading the operator char.
  * \return the good place in the board.
+ * Complexity : O(1).
  */
 Piece::operator char() const {
     return get_piece();
@@ -41,6 +46,7 @@ Piece::operator char() const {
 /**
  * \brief Get piece.
  * \return the piece.
+ * Complexity : O(1).
  */
 char Piece::get_piece() const {
     return piece;
@@ -50,6 +56,7 @@ char Piece::get_piece() const {
  * \brief Set piece.
  * \param pawn.
  * \exception if the char is not good.
+ * Complexity : O(1).
  */
 void Piece::set_piece(char pawn) {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
@@ -68,9 +75,7 @@ void Piece::set_piece(char pawn) {
  * \return os.
  * Complexity : O(1).
  */
-ostream& operator<< (ostream& os, Piece& piece) {
+std::ostream& operator<< (std::ostream& os, Piece& piece) {
     os << piece.get_piece();
     return os;
 }
-
-

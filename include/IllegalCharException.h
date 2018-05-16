@@ -7,13 +7,11 @@
 #include <exception>
 #include <string>
 
-using namespace std;
-
 /**
  * \brief This exception class controls if the char are the good one.
  * \author Johann and Samuel.
  */
-class IllegalCharException : public exception {
+class IllegalCharException : public std::exception {
 
     public:
 
@@ -24,8 +22,6 @@ class IllegalCharException : public exception {
         // Function for the error.
 
         char theChar() const;
-
-    protected:
 
     private:
 

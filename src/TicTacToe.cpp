@@ -1,116 +1,104 @@
-#include "TicTacToe.h"
+/** Include */
 
-using namespace std;
+#include "../include/TicTacToe.h"
 
-TicTacToe::TicTacToe(size_t dimension)
+/**
+ * \brief Constructor.
+ * \param dimension
+ */
+TicTacToe::TicTacToe(std::size_t dimension)
 {
     this->dimension = dimension;
     boardOfTheGame.setBoard(dimension);
 }
 
-
+//TODO !!!!
 TicTacToe::~TicTacToe()
 {
     //dtor
 }
 
 /**
+ * \brief This method manage all the game between two players.
+ * The first one plays with X, the second with O.
  * \param xPlayer
  * \param oPlayer
- * This method manage all the game between two players. the first one plays with X, the second with O.
  */
 void TicTacToe::play(Player& xPlayer, Player& oPlayer)
 {
     size_t count = 0;
-    size_t numberOfCase = Start(xPlayer,oPlayer);
-    while (count < numberOfCase) {
-        TurnOfplayerX(xPlayer);
-        if(Won) return;
-        
-        TurnOfplayerO(oPlayer);
-        if(Won) return;
-        
-        count += 2;
-    }
-    
-}
-
-/**
- * \param xPlayer
- * \param oPlayer
- * This method Initialise the game to start a new game.
- * \return the number of case in the new board.
- */
-size_t TicTacToe::Start(Player& xPlayer, Player& oPlayer){
+    size_t numberOfCase = dimension * dimension;
     resetTheBoard();
-    Won = false ;
-    illegalPlayer = false;
     xPlayer.setChar('X');
     oPlayer.setChar('0');
-    size_t numberOfCase = getDimension() * getDimension();
-    return numberOfCase;
+    while (count < numberOfCase)
+    {
+        if (turn('X', xPlayer, oPlayer))  // X won.
+            return;
+        if (turn('O', xPlayer, oPlayer))  // O won.
+            return;
+        count += 2;
+    }
 }
+
+// Getters.
 
 /**
- * \param Xplayer
- * This method manage the turn of the X player.
+ * \brief get the board of the game.
+ * \return the board of the game.
  */
-void TicTacToe::TurnOfplayerX(Player& Xplayer){
-    try{
-    vector<size_t> point = Xplayer.play(board());
-    if (boardOfTheGame[point]=='.' && !illegalPlayer)
-        boardOfTheGame[point] = 'X';
-    else if (!illegalPlayer){
-       illegalPlayer = true ;
-     return ;
-        }
-    if (isGameWinned(board(), point, 'X') || illegalPlayer) {
-        winnerOfTheGame = &Xplayer;
-        Won = true ;
-  }
-} catch (...) {
-    illegalPlayer = true ;
-    boardOfTheGame[{0,0}] = 'X';
-}
-}
-
-/**
- * \param Oplayer
- * This method manage the turn of the X player.
- */
-    void TicTacToe::TurnOfplayerO(Player& Oplayer){
-    try{
-    vector<size_t> point = Oplayer.play(board());
-    if (boardOfTheGame[point]=='.' && !illegalPlayer)
-        boardOfTheGame[point] = 'O';
-    else if (!illegalPlayer){
-        illegalPlayer = true ;
-        return ;
-    }
-    if (isGameWinned(board(), point, 'O') || illegalPlayer) {
-        winnerOfTheGame = &Oplayer;
-        Won = true ;
-    }
-    } catch (...) {
-        illegalPlayer = true;
-        boardOfTheGame[{0,0}] = 'X';
-    }
-}
-
-    
-
 Board TicTacToe::board() const
 {
     return boardOfTheGame;
 }
 
-size_t TicTacToe::getDimension() const
+/**
+ * \brief get the winner of the game.
+ * \return the winner of the game.
+ */
+Player& TicTacToe::winner() const
 {
-    return dimension;
+    return *winnerOfTheGame;
 }
 
-Player& TicTacToe::winner() const {
-    return *winnerOfTheGame;
+//privates methods.
+
+/**
+ * \brief set all the board with "." before to begin a new game.
+ */
+void TicTacToe::resetTheBoard(){
+    boardOfTheGame = '.';
+}
+
+/**
+ * \brief This method implements a turn of the game.
+ * \param player
+ * \param xPlayer
+ * \param oPlayer
+ * \return true if the game is over, else false.
+ * \exception : all the exception caused by an unnatural behavior is caught.
+ */
+bool TicTacToe::turn(char player, Player& xPlayer, Player& oPlayer) {
+    try
+        {
+            std::vector<std::size_t> point;
+            player == 'X' ? point = xPlayer.play(board()) : point = oPlayer.play(board());
+            if (boardOfTheGame[point] != '.')
+                throw std::string("Illegal Player");
+            boardOfTheGame[point] = player;
+            if (isGameWinned(board(), point, player))
+            {
+                player == 'X' ? winnerOfTheGame = &xPlayer : winnerOfTheGame = &oPlayer;
+                return true;
+            }
+            return false;
+        }
+    catch (...)  // All the exception are caught.
+        {
+            boardOfTheGame[{0,0}] = 'X';
+            player == 'X' ? winnerOfTheGame = &oPlayer : winnerOfTheGame = &xPlayer;
+            return true;
+        }
 }
 
 /**
@@ -127,7 +115,7 @@ Player& TicTacToe::winner() const {
  * \param player.
  * \return true if the game is over, else false.
  */
- bool TicTacToe::isGameWinned(Board board, vector<size_t> point, char player) {
+ bool TicTacToe::isGameWinned(Board board, std::vector<std::size_t> point, char player) {
      Count up = {1, true};
      Count down = {0, true};
 	 Count right = {1, true};
@@ -185,17 +173,11 @@ Player& TicTacToe::winner() const {
  * \param player
  * This method \return true is the chip is one chip of the player, and \return false if not.
  */
-bool TicTacToe::isPlayer(vector<size_t> point, char player) {
-    if (point[0] < 0 || point[0] >= getDimension() || point[1] < 0 || point[1] >= getDimension())
+bool TicTacToe::isPlayer(std::vector<std::size_t> point, char player) {
+    if (point[0] < 0 || point[0] >= dimension || point[1] < 0 || point[1] >= dimension)
         return false;
     char pawn = boardOfTheGame[point];
 	if (player == pawn)
 		return true;
 	return false;
 }
-
-void TicTacToe::resetTheBoard(){
-    boardOfTheGame = '.';
-}
-
-

@@ -7,13 +7,11 @@
 #include <exception>
 #include <string>
 
-using namespace std;
-
 /**
  * \brief This exception class controls if the char are the good one.
  * \author Johann and Samuel.
  */
-class IllegalCoordinateException : public exception {
+class IllegalCoordinateException : public std::exception {
 
     public:
 
@@ -23,9 +21,7 @@ class IllegalCoordinateException : public exception {
 
         // Function for the error.
 
-        string theCoordinate() const;
-
-    protected:
+        std::string theCoordinate() const;
 
     private:
 
