@@ -1,3 +1,7 @@
+/**
+ * This file have been took from our Teacher's github : https://github.com/erelsgl/ariel-cpp-5778.git
+ */
+
 #include "TicTacToe.h"
 #include "DummyPlayers.h"
 #include "Champion.h"
@@ -58,54 +62,54 @@ int main() {
 
 
 	playAndPrintResults(game, player3, player1);
-//	/*
-//		The final board is
-//		XO..
-//		....
-//		....
-//		....
-//        And the winner is XYPlayer, playing as O!
-//	*/
-//
- 
+	/*
+		The final board is
+		XO..
+		....
+		....
+		....
+        And the winner is XYPlayer, playing as O!
+	*/
+
+
 	playAndPrintResults(game, player2, player4);
-//	/*
-//		The final board is
-//		X...
-//		....
-//		....
-//		....
-//		And the winner is YXPlayer, playing as X!
-//	*/
-//
+	/*
+		The final board is
+		X...
+		....
+		....
+		....
+		And the winner is YXPlayer, playing as X!
+	*/
+
 	playAndPrintResults(game, player4, player2);
-//	/*
-//		The final board is
-//		X...
-//		....
-//		....
-//		....
-//		And the winner is YXPlayer, playing as O!
-//	*/
-//
-//
+	/*
+		The final board is
+		X...
+		....
+		....
+		....
+		And the winner is YXPlayer, playing as O!
+	*/
+
+
 	Champion champion;
 	playAndPrintWinner(game, champion, player1);
-//		// The winner is <your name>, playing as X!
+    // The winner is <your name>, playing as X!
 	playAndPrintWinner(game, player1, champion);
-//		// The winner is <your name>, playing as O!
+	// The winner is <your name>, playing as O!
 	playAndPrintWinner(game, champion, player2);
-//		// The winner is <your name>, playing as X!
+    // The winner is <your name>, playing as X!
 	playAndPrintWinner(game, player2, champion);
-//		// The winner is <your name>, playing as O!
+	// The winner is <your name>, playing as O!
 	playAndPrintWinner(game, champion, player3);
-//		// The winner is <your name>, playing as X!
+	// The winner is <your name>, playing as X!
 	playAndPrintWinner(game, player3, champion);
-//		// The winner is <your name>, playing as O!
+	// The winner is <your name>, playing as O!
 	playAndPrintWinner(game, champion, player4);
-//		// The winner is <your name>, playing as X!
+	// The winner is <your name>, playing as X!
 	playAndPrintWinner(game, player4, champion);
-//		// The winner is <your name>, playing as O!
+	// The winner is <your name>, playing as O!
 
 	return 0;
 }
