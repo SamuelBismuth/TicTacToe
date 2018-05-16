@@ -9,6 +9,8 @@
 
 #include "Player.h"
 
+using namespace std;
+
 /*
 	This player scans the board looping on x then on y,
 	and plays on the first empty cell.
