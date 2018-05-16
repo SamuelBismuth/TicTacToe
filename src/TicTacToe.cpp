@@ -1,5 +1,7 @@
 #include "TicTacToe.h"
 
+using namespace std;
+
 TicTacToe::TicTacToe(size_t dimension)
 {
     this->dimension = dimension;
@@ -54,6 +56,7 @@ size_t TicTacToe::Start(Player& xPlayer, Player& oPlayer){
  * This method manage the turn of the X player.
  */
 void TicTacToe::TurnOfplayerX(Player& Xplayer){
+    try{
     vector<size_t> point = Xplayer.play(board());
     if (boardOfTheGame[point]=='.' && !illegalPlayer)
         boardOfTheGame[point] = 'X';
@@ -65,13 +68,16 @@ void TicTacToe::TurnOfplayerX(Player& Xplayer){
         winnerOfTheGame = &Xplayer;
         Won = true ;
   }
+} catch (...) {
+    illegalPlayer = true ; }
 }
 
 /**
  * \param Oplayer
  * This method manage the turn of the X player.
  */
-void TicTacToe::TurnOfplayerO(Player& Oplayer){
+    void TicTacToe::TurnOfplayerO(Player& Oplayer){
+    try{
     vector<size_t> point = Oplayer.play(board());
     if (boardOfTheGame[point]=='.' && !illegalPlayer)
         boardOfTheGame[point] = 'O';
@@ -83,7 +89,9 @@ void TicTacToe::TurnOfplayerO(Player& Oplayer){
         winnerOfTheGame = &Oplayer;
         Won = true ;
     }
+    } catch (...) { illegalPlayer = true ;}
 }
+
     
 
 Board TicTacToe::board() const
