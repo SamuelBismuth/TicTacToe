@@ -20,6 +20,8 @@ TicTacToe::TicTacToe(std::size_t dimension)
  */
 void TicTacToe::play(Player& xPlayer, Player& oPlayer)
 {
+    //draw case.
+    winnerOfTheGame = &oPlayer;  // By the assignment rules.
     size_t count = 0;
     size_t numberOfCase = dimension * dimension;
     boardOfTheGame = '.';
@@ -33,8 +35,6 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
             return;
         count += 2;
     }
-    //draw case.
-    winnerOfTheGame = &oPlayer;  // By the assignment rules.
 }
 
 // Getters.
