@@ -2,9 +2,9 @@
  * This file have been took from our Teacher's github : https://github.com/erelsgl/ariel-cpp-5778.git
  */
 
-#include "TicTacToe.h"
-#include "DummyPlayers.h"
-#include "Champion.h"
+#include "include/TicTacToe.h"
+#include "include/DummyPlayers.h"
+#include "include/Champion.h"
 
 void printResults(const TicTacToe& game) {
 	std::cout << std::endl << "The final board is " << std::endl << game.board();
