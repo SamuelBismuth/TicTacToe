@@ -18,10 +18,9 @@ class TicTacToe
 {
     public:
 
-        //constructor // destructor.
+        //constructor.
 
         TicTacToe(size_t dimension);
-        virtual ~TicTacToe();
 
         //functions used in the main file for the good of the game.
 
@@ -35,7 +34,7 @@ class TicTacToe
 
         bool isGameWinned(Board board, Coordinate point, char player);
         bool isPlayer(Coordinate point, char player);
-        void resetTheBoard();
+        void initializeTheGame(Player& xPlayer, Player& oPlayer);
         bool turn(char player, Player& xPlayer, Player& oPlayer);
 
         //variables.

@@ -12,12 +12,6 @@ TicTacToe::TicTacToe(std::size_t dimension)
     boardOfTheGame.setBoard(dimension);
 }
 
-//TODO !!!!
-TicTacToe::~TicTacToe()
-{
-    //dtor
-}
-
 /**
  * \brief This method manage all the game between two players.
  * The first one plays with X, the second with O.
@@ -28,9 +22,7 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
 {
     size_t count = 0;
     size_t numberOfCase = dimension * dimension;
-    resetTheBoard();
-    xPlayer.setChar('X');
-    oPlayer.setChar('O');
+    initializeTheGame(xPlayer, oPlayer);
     while (count < numberOfCase)
     {
         if (turn('X', xPlayer, oPlayer))  // X won.
@@ -39,8 +31,6 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
             return;
         count += 2;
     }
-    Player tiePlayer = Player {};
-    winnerOfTheGame = &tiePlayer;
 }
 
 // Getters.
@@ -66,10 +56,17 @@ Player& TicTacToe::winner() const
 //privates methods.
 
 /**
- * \brief set all the board with "." before to begin a new game.
+ * \brief before to begin a new game.
+ * Set all the board with ".".
+ * Set the player pawn.
+ * Reinitialize the winner.
  */
-void TicTacToe::resetTheBoard() {
+void TicTacToe::initializeTheGame(Player& xPlayer, Player& oPlayer) {
     boardOfTheGame = '.';
+    Player tiePlayer = Player {};
+    winnerOfTheGame = &tiePlayer;
+    xPlayer.setChar('X');
+    oPlayer.setChar('O');
 }
 
 /**
