@@ -1,8 +1,8 @@
 CURRENT_DIR = $(shell pwd)
 CXX = g++
 CXXFLAGS = -std=c++11
-SRC_DIR = $(CURRENT_DIR)/src
-HEADERS_DIR = $(CURRENT_DIR)/include
+SRC_DIR = $(CURRENT_DIR)
+HEADERS_DIR = $(CURRENT_DIR)
 
 all: Board.o Piece.o IllegalCharException.o IllegalCoordinateException.o Champion.o DummyPlayers.o TicTacToe.o Player.o 
 	$(CXX) $(CXXFLAGS) Board.o Piece.o IllegalCoordinateException.o IllegalCharException.o Champion.o DummyPlayers.o TicTacToe.o Player.o
