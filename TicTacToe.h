@@ -7,6 +7,7 @@
 
 #include "Player.h"
 #include "Board.h"
+#include "Champion.h"
 
 typedef std::vector<std::size_t> Coordinate;
 

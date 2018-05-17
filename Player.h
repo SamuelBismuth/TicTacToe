@@ -19,7 +19,7 @@ class Player
 
         //behave function.
 
-        virtual const std::string name() const { return "TiePlayer"; }
+        virtual const std::string name() const { return "BasicPlayer"; }
         virtual const std::vector<size_t> play(const Board& board) { return {0, 0}; }
 
         //getter.

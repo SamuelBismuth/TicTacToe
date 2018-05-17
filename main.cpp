@@ -92,7 +92,6 @@ int main() {
 		And the winner is YXPlayer, playing as O!
 	*/
 
-
 	Champion champion;
 	playAndPrintWinner(game, champion, player1);
     // The winner is <your name>, playing as X!

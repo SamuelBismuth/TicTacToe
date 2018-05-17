@@ -63,10 +63,11 @@ Player& TicTacToe::winner() const
  */
 void TicTacToe::initializeTheGame(Player& xPlayer, Player& oPlayer) {
     boardOfTheGame = '.';
-    Player tiePlayer = Player {};
-    winnerOfTheGame = &tiePlayer;
     xPlayer.setChar('X');
     oPlayer.setChar('O');
+    TiePlayer tiePlayer;
+    tiePlayer.setChar('O');
+    winnerOfTheGame = &tiePlayer;
 }
 
 /**
