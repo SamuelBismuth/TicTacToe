@@ -1,6 +1,6 @@
 /** Include */
 
-#include "../include/TicTacToe.h"
+#include "TicTacToe.h"
 
 /**
  * \brief Constructor.

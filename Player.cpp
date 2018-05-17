@@ -1,6 +1,6 @@
 /** Include */
 
-#include "../include/Player.h"
+#include "Player.h"
 
 /**
  * \brief get the char of the player.

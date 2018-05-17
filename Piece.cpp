@@ -1,6 +1,6 @@
 /** Include */
 
-#include "../include/Piece.h"
+#include "Piece.h"
 
 /**
  * \brief Implementation of the method for the class Piece.
