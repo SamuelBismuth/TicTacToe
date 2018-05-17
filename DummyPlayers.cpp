@@ -3,7 +3,7 @@
  * It was not allowed to change this file. Since we use vector and not the Object Coordinate, we only change this.
  */
 
-#include "DummyPlayers.h"
+#include "../include/DummyPlayers.h"
 
 const std::vector<std::size_t> XYPlayer::play(const Board& board) {
 	for (uint x=0; x<board.size(); ++x) {

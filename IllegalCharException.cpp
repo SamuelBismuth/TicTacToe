@@ -1,6 +1,6 @@
 /** Include */
 
-#include "IllegalCharException.h"
+#include "../include/IllegalCharException.h"
 
 /**
  * \brief Implementation of the method for the class IllegalCharException.

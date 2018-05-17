@@ -1,6 +1,6 @@
 /** Include */
 
-#include "Champion.h"
+#include "../include/Champion.h"
 
 /**
  * \brief Implementation of the method for the class Champion.

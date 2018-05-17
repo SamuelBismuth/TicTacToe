@@ -1,6 +1,6 @@
 /** Include */
 
-#include "TicTacToe.h"
+#include "../include/TicTacToe.h"
 
 /**
  * \brief Constructor.
@@ -39,6 +39,8 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
             return;
         count += 2;
     }
+    Player tiePlayer = Player {};
+    winnerOfTheGame = &tiePlayer;
 }
 
 // Getters.
@@ -66,7 +68,7 @@ Player& TicTacToe::winner() const
 /**
  * \brief set all the board with "." before to begin a new game.
  */
-void TicTacToe::resetTheBoard(){
+void TicTacToe::resetTheBoard() {
     boardOfTheGame = '.';
 }
 
