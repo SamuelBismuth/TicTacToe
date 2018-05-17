@@ -32,7 +32,7 @@ class Board {
         //Operators
 
         Piece& operator[] (std::vector<std::size_t> point) const;
-        Board& operator= (char pawn);
+        const Board& operator= (char pawn) const;
         Board& operator= (const Board& board);
 
         //size
@@ -58,7 +58,7 @@ class Board {
 
         //help function.
 
-        void fill(char pawn);
+        void fill(char pawn) const;
 
         // Operator << to print the Board.
 

@@ -22,7 +22,6 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
 {
     size_t count = 0;
     size_t numberOfCase = dimension * dimension;
-    boardOfTheGame = '.';
     xPlayer.setChar('X');
     oPlayer.setChar('O');
     while (count < numberOfCase)
@@ -55,6 +54,7 @@ Board TicTacToe::board() const
  */
 Player& TicTacToe::winner() const
 {
+    boardOfTheGame = '.';
     return *winnerOfTheGame;
 }
 

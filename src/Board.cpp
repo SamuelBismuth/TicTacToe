@@ -77,7 +77,7 @@ Piece& Board::operator[] (std::vector<std::size_t> point) const {
  * \exception IllegalCharException : if the char is not '.'.
  * complexity : O(n) (such that n = dimension).
  */
-Board& Board::operator= (char pawn) {
+const Board& Board::operator= (char pawn) const {
     fill(pawn);
     return *this;
 }
@@ -165,7 +165,7 @@ void Board::setMatrix(const std::size_t dimension) {
  * \param pawn
  * Complexity : O(n^2).
  */
-void Board::fill(char pawn) {
+void Board::fill(char pawn) const {
     if (pawn != '.' && pawn != 'X' && pawn != 'O')
         throw IllegalCharException(pawn);
     for (std::size_t i = 0; i < dimension; i++) {
