@@ -30,7 +30,7 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
     size_t numberOfCase = dimension * dimension;
     resetTheBoard();
     xPlayer.setChar('X');
-    oPlayer.setChar('0');
+    oPlayer.setChar('O');
     while (count < numberOfCase)
     {
         if (turn('X', xPlayer, oPlayer))  // X won.
