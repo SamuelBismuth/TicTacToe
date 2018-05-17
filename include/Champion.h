@@ -18,5 +18,3 @@ class Champion: public Player {
         const std::string name() const override { return "Johann & Samuel"; }
         const std::vector<std::size_t> play(const Board& board) override;
 };
-
-

@@ -43,3 +43,4 @@ const std::vector<std::size_t> Champion::play(const Board& board) {
     }
     return {0,0};
 }
+

@@ -29,9 +29,10 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
     {
         if (turn('X', xPlayer, oPlayer))  // X won.
             return;
-        if (turn('O', xPlayer, oPlayer))  // O won.
+        count++;
+        if (turn('O', xPlayer, oPlayer) && count < numberOfCase)  // O won.
             return;
-        count += 2;
+        count++;
     }
     //draw case.
     winnerOfTheGame = &oPlayer;  // By the assignment rules.
