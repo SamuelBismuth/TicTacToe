@@ -22,7 +22,9 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
 {
     size_t count = 0;
     size_t numberOfCase = dimension * dimension;
-    initializeTheGame(xPlayer, oPlayer);
+    boardOfTheGame = '.';
+    xPlayer.setChar('X');
+    oPlayer.setChar('O');
     while (count < numberOfCase)
     {
         if (turn('X', xPlayer, oPlayer))  // X won.
@@ -31,6 +33,8 @@ void TicTacToe::play(Player& xPlayer, Player& oPlayer)
             return;
         count += 2;
     }
+    //draw case.
+    winnerOfTheGame = &oPlayer;  // By the assignment rules.
 }
 
 // Getters.
@@ -54,21 +58,6 @@ Player& TicTacToe::winner() const
 }
 
 //privates methods.
-
-/**
- * \brief before to begin a new game.
- * Set all the board with ".".
- * Set the player pawn.
- * Reinitialize the winner.
- */
-void TicTacToe::initializeTheGame(Player& xPlayer, Player& oPlayer) {
-    boardOfTheGame = '.';
-    xPlayer.setChar('X');
-    oPlayer.setChar('O');
-    TiePlayer tiePlayer;
-    tiePlayer.setChar('O');
-    winnerOfTheGame = &tiePlayer;
-}
 
 /**
  * \brief This method implements a turn of the game.

@@ -19,17 +19,4 @@ class Champion: public Player {
         const std::vector<std::size_t> play(const Board& board) override;
 };
 
-/**
- * \brief This class is a TiePlayer.
- * This class extends the Player class.
- * \author Johann and Samuel.
- */
-class TiePlayer: public Player {
-
-    public:
-
-        const std::string name() const override { return "TiePlayer"; }
-        const std::vector<std::size_t> play(const Board& board) override;
-};
-
 

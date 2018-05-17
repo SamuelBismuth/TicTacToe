@@ -7,7 +7,6 @@
 
 #include "Player.h"
 #include "Board.h"
-#include "Champion.h"
 
 typedef std::vector<std::size_t> Coordinate;
 
@@ -35,7 +34,6 @@ class TicTacToe
 
         bool isGameWinned(Board board, Coordinate point, char player);
         bool isPlayer(Coordinate point, char player);
-        void initializeTheGame(Player& xPlayer, Player& oPlayer);
         bool turn(char player, Player& xPlayer, Player& oPlayer);
 
         //variables.

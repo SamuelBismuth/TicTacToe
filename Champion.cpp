@@ -43,14 +43,3 @@ const std::vector<std::size_t> Champion::play(const Board& board) {
     }
     return {0,0};
 }
-
-/**
- * \brief This method implements the dummy of the champion.
- * \param board
- * \return The point where the champion want to put his piece.
- * The champion begin from the right / up and then jump to the bottom / left (each turn jump to the opposite) .. until the right diagonal is full.
- * The champion both side : as first and as second player, will win any other player of the game.
- */
-const std::vector<std::size_t> TiePlayer::play(const Board& board) {
-    return {0,0};
-}
