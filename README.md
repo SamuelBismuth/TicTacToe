@@ -17,7 +17,7 @@ Type the command line "make all" in your terminal.
 
 # attention
 
-We put all the h files in the main folder because of automatics tests.
+We put all the h files and cpp files in the main folder because of automatics tests.
 
 #Summary
 
