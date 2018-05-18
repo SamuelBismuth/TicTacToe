@@ -85,7 +85,6 @@ bool TicTacToe::turn(char player, Player& xPlayer, Player& oPlayer) {
         }
     catch (...)  // All the exception are caught.
         {
-            boardOfTheGame[{0,0}] = 'X';
             player == 'X' ? winnerOfTheGame = &oPlayer : winnerOfTheGame = &xPlayer;
             return true;
         }

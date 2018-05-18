@@ -122,7 +122,7 @@
 1526478187 source:/home/sam/Desktop/C++/Assignment_7/src/Player.cpp
 	"../include/Player.h"
 
-1526594541 source:/home/sam/Desktop/C++/Assignment_7/src/TicTacToe.cpp
+1526630719 source:/home/sam/Desktop/C++/Assignment_7/src/TicTacToe.cpp
 	"../include/TicTacToe.h"
 
 1526592275 /home/sam/Desktop/C++/Assignment_7/include/TicTacToe.h
@@ -130,8 +130,8 @@
 	"Player.h"
 	"Board.h"
 
-1526593678 source:/home/sam/Desktop/C++/Assignment_7/main.cpp
-	"include/TicTacToe.h"
-	"include/DummyPlayers.h"
-	"include/Champion.h"
+1526630315 source:/home/sam/Desktop/C++/Assignment_7/main.cpp
+	"TicTacToe.h"
+	"DummyPlayers.h"
+	"Champion.h"
 
