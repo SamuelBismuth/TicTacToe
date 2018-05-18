@@ -60,7 +60,6 @@ int main() {
         And the winner is XYPlayer, playing as X!
 	*/
 
-
 	playAndPrintResults(game, player3, player1);
 	/*
 		The final board is
@@ -70,7 +69,6 @@ int main() {
 		....
         And the winner is XYPlayer, playing as O!
 	*/
-
 
 	playAndPrintResults(game, player2, player4);
 	/*
