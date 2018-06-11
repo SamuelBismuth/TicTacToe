@@ -1,4 +1,4 @@
-# Connect_4
+# TicTacToe
 
 A repository for the assignments of the course c++.
 
