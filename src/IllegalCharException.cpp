@@ -23,4 +23,3 @@ char IllegalCharException::theChar() const {
 }
 
 
-

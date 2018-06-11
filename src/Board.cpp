@@ -10,7 +10,12 @@
  * \brief Empty constructor for the object Board.
  * complexity : O(1).
  */
-Board::Board() {}
+Board::Board() {
+    this->dimension = 0;
+    matrix = new Piece*[dimension];
+    for(std::size_t i = 0; i < dimension; i++)
+        matrix[i] = new Piece[dimension];
+}
 
 /**
  * \brief Constructor for the object Board.
@@ -114,6 +119,58 @@ std::size_t Board::size() const {
     return getDimension();
 }
 
+/**
+ * \brief Output of the picture.
+ * based on our teacher's github :
+ * https://github.com/erelsgl/ariel-cpp-5778/blob/master/week07-diamond-rtti/5-image/image.cpp
+ * Here you need to create a matrix [pixel][pixel] which contains pixel from 0 to 255.
+ * Each number represent a color (you may change color to differentiate x from 0).
+ * You need to divide the matrix into sub-matrix, in each sub-matrix there is a pawn.
+ * ATTENTION do not forget the board (that mean let a line to separate the case as follow :
+ *
+ * X | O | X
+ * ---------
+ * X | O | O
+ * ---------
+ * O | O | O
+ *
+ * Since you separate the matrix into sub-matrix (dynamically of course cause the size of the board can change).
+ * Send all the sub-matrix to get fill.
+ * When i mean separate the matrix i mean virtually cause you don't need to create new matrix, only put number
+ * (x and y)and a value which is the "pas" of the case.
+ * \param pixel
+ * \return the filename.
+ * complexity : O(pixel * pixel).
+ */
+std::string Board::draw(int pixel)
+{
+    std::string nameFile = new_name();
+    std::ofstream imageFile(nameFile, std::ios::out | std::ios::binary);
+    RGB image[pixel * pixel];
+    focus(image, pixel);
+    imageFile << "P6" << std::endl << pixel << " " << pixel << std::endl << 255 << std::endl;
+    int pas = pixel / dimension;
+    for (int i = 0; i < dimension; i++)
+    {
+        for (int j = 0; j < dimension; j++)
+        {
+            for(int x = 0; x < pas; x++)
+            {
+                for(int y = 0; y < pas; y++)
+                {
+                    if (matrix[i][j].get_piece() == 'X')
+                        create_X(image, x, y, pas, pas * i, pas * j);
+                    else if (matrix[i][j].get_piece() == 'O')
+                        create_O(image, x, y, pas, pas * i, pas * j);
+                    create_Rectangle(image, x, y, pas, pas * i, pas * j);
+                }
+            }
+        }
+    }
+    imageFile.write(reinterpret_cast<char*>(&image), 3 * pixel * pixel);
+    imageFile.close();
+    return (std::string) nameFile;
+}
 
 //Getter
 
@@ -175,6 +232,111 @@ void Board::fill(char pawn) const {
     }
 }
 
+void Board::focus(RGB image[], int& pixel) {
+    int counter = 0;
+    if (!(pixel % dimension == 0))
+    {
+         while(!(pixel % dimension == 0))
+        {
+            pixel--;
+            counter++;
+        }
+    }
+    while(pixel * pixel - counter == pixel * pixel)
+    {
+        image[pixel * pixel - counter].red = 0;
+        counter--;
+    }
+}
+
+/**
+ * \brief create a O.
+ * \param image
+ * \param x
+ * \param y
+ * \param pas
+ * \param pas_x
+ * \param pas_y
+ * This method draw a circle.
+ * The color may change by changing the numbers.
+ */
+void Board::create_O(RGB image[], int x, int y, int pas, int pas_x, int pas_y)
+{
+    double c = pas / 2;
+    double function_circle = std::sqrt((x - c) * (x - c) + (y - c) * (y - c));
+    if (function_circle <= pas / 2 && function_circle >= 19 * pas / 40)
+        image[pas * dimension * (pas_x + x) + (pas_y + y)].red = (250);
+}
+
+/**
+ * \brief create a X.
+ * \param image
+ * \param x
+ * \param y
+ * \param pas
+ * \param pas_x
+ * \param pas_y
+ * This method draw a X.
+ * The color may change by changing the numbers.
+ */
+void Board::create_X(RGB image[], int x, int y, int pas, int pas_x, int pas_y)
+{
+    if (x == y && x <= pas && y <= pas)
+    {
+        image[pas * dimension * (pas_x + x) + (pas_y + y)].blue = (250); //here is the segmentation fault
+        image[pas * dimension * ((pas_x + pas) - x) + (pas_y + y)].blue = (250);
+    }
+}
+
+/**
+ * \brief create a rectangle.
+ * \param image
+ * \param x
+ * \param y
+ * \param pas
+ * \param pas_x
+ * \param pas_y
+ * This method draw a rectangle.
+ * The color may change by changing the numbers.
+ */
+void Board::create_Rectangle(RGB image[], int x, int y, int pas, int pas_x, int pas_y)
+{
+    if ((x + pas_x == pas_x) || (y + pas_y == pas_y) ||(x + pas_x == pas + pas_x - 1) || (y + + pas_y == pas + pas_y - 1))
+    {
+        image[pas * dimension * (pas_x + x) + (pas_y + y)].green = (255);
+        image[pas * dimension * (pas_x + x) + (pas_y + y)].blue = (255);
+        image[pas * dimension * (pas_x + x) + (pas_y + y)].red = (255);
+    }
+}
+
+/**
+ * \brief Get a new name for the picture file.
+ * This method increment i until a new name is found.
+ * \return the new name.
+ */
+std::string Board::new_name()
+{
+    int i = 2;
+    std::string filename = "board.ppm";
+    while (exists_file(filename))
+    {
+        filename = "board"+ std::to_string(i)+".ppm" ;
+        i++ ;
+    }
+    return filename;
+}
+
+/**
+ * \brief check if a file exists.
+ * \param name
+ * \return true if the file exist, else false.
+ */
+bool Board::exists_file (const std::string& name)
+{
+    struct stat buffer;
+    return (stat (name.c_str(), &buffer) == 0);
+}
+
 //friends operators.
 
 /**
@@ -192,4 +354,28 @@ std::ostream& operator<< (std::ostream& os, const Board& board) {
         os << std::endl;
     }
     return os;
+}
+
+/**
+ * \brief operator cin.
+ * This method turn the txt file into a board object corresponding to the pawns.
+ * \param input
+ * \param board
+ * \return input
+ */
+std::istream& operator>> (std::istream &input, Board& board)
+{
+    std::string str;
+    size_t dim = 0, raw = 0;
+    input >> str;
+    dim = str.length();
+    board.setBoard(dim);
+    while (input)
+    {
+        for (size_t j = 0; j < dim; j++)
+            board[{raw, j}] = str[j];
+        input >> str;
+        raw++;
+    }
+    return input;
 }

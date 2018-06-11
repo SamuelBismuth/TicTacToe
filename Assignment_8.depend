@@ -1,0 +1,78 @@
+# depslib dependency file v1.0
+1527680879 source:/home/sam/Desktop/C++/Assignment_8/main.cpp
+	"Board.h"
+	<iostream>
+	<string>
+
+1527687676 source:/home/sam/Desktop/C++/Assignment_8/src/Board.cpp
+	"../include/Board.h"
+
+1527687621 /home/sam/Desktop/C++/Assignment_8/include/Board.h
+	<iostream>
+	<vector>
+	<cmath>
+	<fstream>
+	<string>
+	<sys/stat.h>
+	"Piece.h"
+	"IllegalCoordinateException.h"
+	"IllegalCharException.h"
+
+1527622070 /home/sam/Desktop/C++/Assignment_8/include/Piece.h
+	<iostream>
+	"IllegalCharException.h"
+
+1527622070 /home/sam/Desktop/C++/Assignment_8/include/IllegalCharException.h
+	<iostream>
+	<exception>
+	<string>
+
+1527622070 /home/sam/Desktop/C++/Assignment_8/include/IllegalCoordinateException.h
+	<iostream>
+	<exception>
+	<string>
+
+1527622070 source:/home/sam/Desktop/C++/Assignment_8/src/Champion.cpp
+	"../include/Champion.h"
+
+1526991405 /home/sam/Desktop/C++/Assignment_8/include/Champion.h
+	<iostream>
+	"Player.h"
+
+1526991469 /home/sam/Desktop/C++/Assignment_8/include/Player.h
+	<iostream>
+	<string>
+	"Board.h"
+
+1526991523 source:/home/sam/Desktop/C++/Assignment_8/src/DummyPlayers.cpp
+	"../include/DummyPlayers.h"
+
+1526991415 /home/sam/Desktop/C++/Assignment_8/include/DummyPlayers.h
+	<iostream>
+	"Player.h"
+
+1527622070 source:/home/sam/Desktop/C++/Assignment_8/src/IllegalCharException.cpp
+	"../include/IllegalCharException.h"
+
+1527622070 source:/home/sam/Desktop/C++/Assignment_8/src/IllegalCoordinateException.cpp
+	"../include/IllegalCoordinateException.h"
+
+1527622070 source:/home/sam/Desktop/C++/Assignment_8/src/Piece.cpp
+	"../include/Piece.h"
+
+1526991563 source:/home/sam/Desktop/C++/Assignment_8/src/Player.cpp
+	"../include/Player.h"
+
+1526991572 source:/home/sam/Desktop/C++/Assignment_8/src/TicTacToe.cpp
+	"../include/TicTacToe.h"
+
+1526991469 /home/sam/Desktop/C++/Assignment_8/include/TicTacToe.h
+	<iostream>
+	"Player.h"
+	"Board.h"
+
+1527661299 source:/home/sam/Desktop/C++/Assignment_8/src/Draw.cpp
+	"../include/Board.h"
+
+1527232522 /home/sam/Desktop/C++/Assignment_8/include/Draw.h
+

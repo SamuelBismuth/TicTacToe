@@ -1,11 +1,17 @@
 CURRENT_DIR = $(shell pwd)
 CXX = g++
 CXXFLAGS = -std=c++11
-SRC_DIR = $(CURRENT_DIR)
-HEADERS_DIR = $(CURRENT_DIR)
+SRC_DIR = $(CURRENT_DIR)/src
+HEADERS_DIR = $(CURRENT_DIR)/include
 
-all: Board.o Piece.o IllegalCharException.o IllegalCoordinateException.o Champion.o DummyPlayers.o TicTacToe.o Player.o 
-	$(CXX) $(CXXFLAGS) Board.o Piece.o IllegalCoordinateException.o IllegalCharException.o Champion.o DummyPlayers.o TicTacToe.o Player.o
+all: main.o Board.o Piece.o IllegalCharException.o IllegalCoordinateException.o Champion.o DummyPlayers.o TicTacToe.o Player.o 
+	$(CXX) $(CXXFLAGS) main.o Board.o Piece.o IllegalCoordinateException.o IllegalCharException.o Champion.o DummyPlayers.o TicTacToe.o Player.o
+	./a.out < board3.txt
+	./a.out < board6.txt
+	./a.out < board7.txt
+	xdg-open board.ppm
+	xdg-open board2.ppm
+	xdg-open board3.ppm
 
 Board.o: $(SRC_DIR)/Board.cpp $(HEADERS_DIR)/Board.h  
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Board.cpp -o Board.o
@@ -31,8 +37,7 @@ TicTacToe.o:$(SRC_DIR)/TicTacToe.cpp $(HEADERS_DIR)/TicTacToe.h
 Player.o:$(SRC_DIR)/Player.cpp $(HEADERS_DIR)/Player.h 
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Player.cpp -o Player.o
 
-#main.o: main.cpp $(HEADERS_DIR)/TicTacToe.h $(HEADERS_DIR)/DummyPlayers.h $(HEADERS_DIR)/Champion.h
-#	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
-
+main.o: main.cpp $(HEADERS_DIR)/Board.h
+	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
 clean:
-	rm *.o a.out
+	rm *.o a.out board.ppm board2.ppm board3.ppm

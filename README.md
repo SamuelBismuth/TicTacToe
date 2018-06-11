@@ -15,11 +15,11 @@ a txt file with our id's.
 
 Type the command line "make all" in your terminal.
 
-# attention
+# Attention
 
 We put all the h files and cpp files in the main folder because of automatics tests.
 
-#Summary
+# Summary
 
 Board : class for edit the game.
 Player : virtual class that represent a player in the game.

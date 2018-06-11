@@ -4,65 +4,98 @@
 /** Includes */
 
 #include <iostream>
-#include <vector> // For the vector use (which replaces coordinate).
+#include <vector>  // For the vector use (which replaces coordinate).
+#include <cmath>  // For the sqrt function.
+#include <fstream>  // For the image.
+#include <string>  // For the string variable.
+#include <sys/stat.h>  // For the stat buffer structure.
 
 #include "Piece.h"
 #include "IllegalCoordinateException.h"
 #include "IllegalCharException.h"
+
+/** based on our teacher's github :
+ * https://github.com/erelsgl/ariel-cpp-5778/blob/master/week07-diamond-rtti/5-image/image.cpp
+ */
+struct RGB
+{
+    uint8_t red, green, blue;
+public:
+    RGB() {}
+    RGB(uint8_t red, uint8_t green, uint8_t blue): red(red), green(green), blue(blue) {}
+};
 
 /**
  * \brief This class is a Board.
  * This board is the base of the game connection 4.
  * \author Johann and Samuel.
  */
-class Board {
+class Board
+{
 
-    public:
+public:
 
-        //Constructors
+    //Constructors
 
-        Board();
-        Board(const Board& board);        //Copy constructor.
-        Board(std::size_t dimension);    //Constructor. TODO: const
+    Board();
+    Board(const Board& board);        //Copy constructor.
+    Board(std::size_t dimension);    //Constructor
 
-        //D_tor
+    //D_tor
 
-        ~Board();
+    ~Board();
 
-        //Operators
+    //Operators
 
-        Piece& operator[] (std::vector<std::size_t> point) const;
-        const Board& operator= (char pawn) const;
-        Board& operator= (const Board& board);
+    Piece& operator[] (std::vector<std::size_t> point) const;
+    const Board& operator= (char pawn) const;
+    Board& operator= (const Board& board);
 
-        //size
+    // Size
 
-        size_t size() const;
+    size_t size() const;
 
-        //Getter.
+    // Output the board.
 
-        size_t getDimension() const;
+    std::string draw(int pixel);
 
-        //Setter
+    //Getter.
 
-        void setBoard(const std::size_t dimension);
-        void setDimension(const std::size_t dimension);
-        void setMatrix(const std::size_t dimension);
+    size_t getDimension() const;
 
-    private:
+    //Setter
 
-        // Variables of the object Board.
+    void setBoard(const std::size_t dimension);
+    void setDimension(const std::size_t dimension);
+    void setMatrix(const std::size_t dimension);
 
-        std::size_t dimension;
-        Piece** matrix;
+private:
 
-        //help function.
+    // Variables of the object Board.
 
-        void fill(char pawn) const;
+    std::size_t dimension;
+    Piece** matrix;
 
-        // Operator << to print the Board.
+    // Help function.
 
-        friend std::ostream& operator<< (std::ostream& os, const Board& board);
+    void fill(char pawn) const;
+
+    // Help function for the picture
+
+    void focus(RGB image[], int& pixel);
+    void create_O(RGB image[], int x, int y, int pas, int pas_x, int pas_y);
+    void create_X(RGB image[], int x, int y, int pas, int pas_x, int pas_y);
+    void create_Rectangle(RGB image[], int x, int y, int pas, int pas_x, int pas_y);
+    std::string new_name();
+    bool exists_file (const std::string& name);
+
+    // Operator << to print the Board.
+
+    friend std::ostream& operator<< (std::ostream& os, const Board& board);
+
+    // Operator >> to output the Board.
+
+    friend std::istream& operator>> (std::istream &input, Board& board);
 };
 
 #endif // BOARD_H

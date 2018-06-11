@@ -22,4 +22,3 @@ IllegalCoordinateException::IllegalCoordinateException(int x, int y) {
 std::string IllegalCoordinateException::theCoordinate() const {
     return std::to_string(x) + "," + std::to_string(y);
 }
-
